@@ -22,7 +22,7 @@ test-parity:
     - short-jobs
   stage: test
   services:
-    - name: docker.slock.it/build-images/parity:v1.11.7
+    - name: docker.slock.it/build-images/parity:v2.0.5
       alias: parity
   script:
     - sh /prepare.sh
