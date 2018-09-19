@@ -19,13 +19,13 @@ export async function migrateUserRegistryContracts(web3: Web3Type): Promise<JSON
         const userLogicWeb3 = await sloffle.deploy(
             './solidity_modules/ew-user-registry-contracts/dist/UserLogic.json',
             [userContractLookupWeb3._address],
-            { from: TestAccounts.topAdmin, privateKey: '0x' + TestAccounts.topAdminPK, , gas: 1500000 },
+            { from: TestAccounts.topAdmin, privateKey: '0x' + TestAccounts.topAdminPK, gas: 5500000 },
         );
 
         const userDbWeb3 = await sloffle.deploy(
             './solidity_modules/ew-user-registry-contracts/dist/UserDB.json',
             [userLogicWeb3._address],
-            { from: TestAccounts.topAdmin, privateKey: '0x' + TestAccounts.topAdminPK, gas: 1500000 },
+            { from: TestAccounts.topAdmin, privateKey: '0x' + TestAccounts.topAdminPK, gas: 5500000 },
         );
 
         const userLogic = new UserLogic(web3, userLogicWeb3._address);
