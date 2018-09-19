@@ -9,13 +9,13 @@
   },
   "scripts": {
     "start-test-backend": "node node_modules/ewf-coo-test-backend/index.js",
-    "test": "npm run build-ts && mocha dist/js/src/test/",
+    "test": "npm run prepare-wrapping && npm run build-ts && mocha dist/js/src/test/",
     "start-ganache": "ganache-cli -m 'chalk park staff buzz chair purchase wise oak receive avoid avoid home' -g 0 -l 80000000 -e 1000000 -a 20",
     "testlight": "npm run build-ts && mocha build/ts/test/",
     "debug-light-test": "npm run build-ts && mocha --inspect-brk build/ts/test/",
     "build-and-deploy": "npm run build-ts && npm run deploy-contracts",
     "deploy-contracts": "node dist/js/src/utils/deployment/startDeploy",
-    "precompile-contracts": "rm -rf build/contracts",
+    "prepare-wrapping": "rm -rf dist/ts/wrappedContracts && mkdir -p dist/ts/wrappedContracts && node wrapping.js",
     "prebuild-ts": "rm -rf build/ts",
     "build-ts": "node_modules/typescript/bin/tsc && cp src/types/*.d.ts dist/js/src/types/"
   },
