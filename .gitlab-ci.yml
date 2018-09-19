@@ -40,7 +40,7 @@ test-ganache:
     - npm install -g spm
     - npm install 
     - spm install
-    - npm run start-ganache
+    - npm run start-ganache > /dev/null 2>&1 &
     - npm test
 
 push-to-registry:
