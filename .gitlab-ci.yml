@@ -19,7 +19,7 @@ build-pkg:
 
 test-parity:
   tags:
-    -short-jobs
+    - short-jobs
   stage: test
   services:
     - name: docker.slock.it/build-images/parity:v1.11.7
@@ -33,7 +33,7 @@ test-parity:
 
 test-ganache:
   tags:
-    -short-jobs
+    - short-jobs
   stage: test
   script:
     - sh ./prepare.sh
