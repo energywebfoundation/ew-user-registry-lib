@@ -30,7 +30,12 @@ test-parity:
     - npm install -g spm
     - npm install 
     - spm install
-    - npm test
+    - npm test || true
+    - curl -X POST \
+          http://parity:8545 \
+          -H 'Cache-Control: no-cache' \
+          -H 'Content-Type: application/json' \
+          -d '{"method":"eth_getTransactionReceipt","params":["0xb81579026a976737c791fa9f0e1f1840cc8f2f36ce19b2c53d4e1e3902ed184b"],"id":1,"jsonrpc":"2.0"}'
 
 test-ganache:
   tags:
