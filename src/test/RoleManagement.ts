@@ -25,11 +25,27 @@ describe('RoleManagement', () => {
     const configFile = JSON.parse(fs.readFileSync(process.cwd() + '/connection-config.json', 'utf8'));
 
     const Web3 = require('web3');
-    const web3 = new Web3(configFile.develop.web3);
+    const web3: Web3Type = new Web3(configFile.develop.web3);
 
     it('should deploy the contracts', async () => {
         const contracts = await migrateUserRegistryContracts(web3);
 
-        console.log(contracts);
+        let numberContracts = 0;
+
+        Object.keys(contracts).forEach(async (key) => {
+            numberContracts += 1;
+
+            const deployedBytecode = await web3.eth.getCode(contracts[key]);
+            assert.isTrue(deployedBytecode.length > 0);
+
+            const contractInfo = JSON.parse(fs.readFileSync(key, 'utf8'));
+
+            const tempBytecode = '0x' + contractInfo.deployedBytecode;
+            assert.equal(deployedBytecode, tempBytecode);
+
+        });
+
+        assert.equal(numberContracts, 3);
+
     });
 });
