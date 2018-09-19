@@ -23,7 +23,6 @@ test-parity:
   stage: test
   services:
     - name: docker.slock.it/build-images/parity:v1.11.7
-      alias: parity
   script:
     - sh /prepare.sh
     - npm install -g spm
