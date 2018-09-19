@@ -1,0 +1,5 @@
+{
+    "develop": {
+        "web3": "http://localhost:8545"
+    }
+}
