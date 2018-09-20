@@ -21,6 +21,7 @@ import Web3Type from '../types/web3';
 import { migrateUserRegistryContracts } from '../utils/deployment/migrateContracts';
 import { UserContractLookup } from '../../dist/ts/wrappedContracts/UserContractLookup';
 import { UserLogic } from '../../dist/ts/wrappedContracts/UserLogic';
+import { UserDB } from '../../dist/ts/wrappedContracts/UserDB';
 
 describe('UserContractLookup', () => {
 
@@ -31,6 +32,7 @@ describe('UserContractLookup', () => {
 
     let userContractLookup: UserContractLookup;
     let userRegistry: UserLogic;
+    let userDB: UserDB;
 
     const privateKeyDeployment = configFile.develop.deployKey.startsWith('0x') ?
         configFile.develop.deployKey : '0x' + configFile.develop.deployKey;
@@ -42,6 +44,7 @@ describe('UserContractLookup', () => {
 
         userContractLookup = new UserContractLookup((web3 as any), contracts['./solidity_modules/ew-user-registry-contracts/dist/UserContractLookup.json']);
         userRegistry = new UserLogic((web3 as any), contracts['./solidity_modules/ew-user-registry-contracts/dist/UserLogic.json']);
+        userDB = new UserDB((web3 as any), contracts['./solidity_modules/ew-user-registry-contracts/dist/UserDB.json']);
 
         let numberContracts = 0;
 
@@ -107,6 +110,7 @@ describe('UserContractLookup', () => {
         await userContractLookup.update('0x1000000000000000000000000000000000000005', { privateKey: privateKeyDeployment });
 
         assert.equal(await userContractLookup.userRegistry(), '0x1000000000000000000000000000000000000005');
+        assert.equal(await userDB.owner(), '0x1000000000000000000000000000000000000005');
     });
 
     it('should throw when trying to change owner as non-owner', async () => {
