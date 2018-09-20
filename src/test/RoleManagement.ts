@@ -48,4 +48,26 @@ describe('RoleManagement', () => {
         assert.equal(numberContracts, 3);
 
     });
+
+    it('should deploy the contracts', async () => {
+        const contracts = await migrateUserRegistryContracts(web3);
+
+        let numberContracts = 0;
+
+        Object.keys(contracts).forEach(async (key) => {
+            numberContracts += 1;
+
+            const deployedBytecode = await web3.eth.getCode(contracts[key]);
+            assert.isTrue(deployedBytecode.length > 0);
+
+            const contractInfo = JSON.parse(fs.readFileSync(key, 'utf8'));
+
+            const tempBytecode = '0x' + contractInfo.deployedBytecode;
+            assert.equal(deployedBytecode, tempBytecode);
+
+        });
+
+        assert.equal(numberContracts, 3);
+
+    });
 });

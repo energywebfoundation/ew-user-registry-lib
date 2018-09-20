@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "parity-docker": "docker pull docker.slock.it/build-images/parity:v1.11.7 && docker run --name 'parityDocker' -p 8180:8180 -p 8545:8545 -p 8546:8546 -p 8090:8091 docker.slock.it/build-images/parity:v1.11.7",
+    "parity-docker": "docker pull docker.slock.it/build-images/parity:v1.11.8-tobalaba && docker run --name 'parityDocker' -p 8180:8180 -p 8545:8545 -p 8546:8546 -p 8090:8091 docker.slock.it/build-images/parity:v1.11.8-tobalaba",
     "dockerstop": "docker kill 'parityDocker' && docker container rm 'parityDocker'",
     "start-test-backend": "node node_modules/ewf-coo-test-backend/index.js",
     "test": "npm run prepare-wrapping && npm run build-ts && mocha dist/js/src/test/",
@@ -37,8 +37,8 @@
     "ethereumjs-tx": "^1.3.7",
     "jsonschema": "^1.2.4",
     "precise-proofs": "0.0.1",
-    "sloffle": "v1.2.4",
-    "web3": "^1.0.0-beta.33",
+    "sloffle": "v1.3.0-beta06",
+    "web3": "^1.0.0-beta.36",
     "winston": "^3.0.0",
     "write-json-file": "^2.3.0"
   },
