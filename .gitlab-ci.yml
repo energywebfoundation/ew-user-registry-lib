@@ -22,7 +22,7 @@ test-parity:
     - short-jobs
   stage: test
   services:
-    - name: docker.slock.it/build-images/parity:v2.0.5
+    - name: docker.slock.it/build-images/parity:v1.11.8-tobalaba
       alias: parity
   script:
     - sh /prepare.sh
@@ -31,11 +31,6 @@ test-parity:
     - npm install 
     - spm install
     - npm test || true
-    - "curl -X POST \
-          http://parity:8545 \
-          -H 'Cache-Control: no-cache' \
-          -H 'Content-Type: application/json' \
-          -d '{\"method\":\"eth_getTransactionReceipt\",\"params\":[\"0xb81579026a976737c791fa9f0e1f1840cc8f2f36ce19b2c53d4e1e3902ed184b\"],\"id\":1,\"jsonrpc\":\"2.0\"}'"
 
 test-ganache:
   tags:
