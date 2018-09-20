@@ -1,7 +1,5 @@
 import { Sloffle } from 'sloffle';
-import { TestAccounts } from '../testing/TestAccounts';
 import Web3Type from '../../types/web3';
-import { UserLogic } from '../../../dist/ts/wrappedContracts/UserLogic';
 import { UserContractLookup } from '../../../dist/ts/wrappedContracts/UserContractLookup';
 import * as fs from 'fs';
 
@@ -33,15 +31,9 @@ export async function migrateUserRegistryContracts(web3: Web3Type): Promise<JSON
             { privateKey: privateKeyDeployment },
         );
 
-        const userLogic = new UserLogic((web3 as any), userLogicWeb3._address);
-        await userLogic.init(
-            userDbWeb3._address,
-            { privateKey: privateKeyDeployment },
-        );
-
         const userContractLookup = new UserContractLookup((web3 as any), userContractLookupWeb3._address);
         await userContractLookup.init(
-            userLogicWeb3._address,
+            userLogicWeb3._address, userDbWeb3._address,
             { privateKey: privateKeyDeployment },
         );
 

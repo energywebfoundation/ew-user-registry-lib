@@ -79,7 +79,7 @@ describe('UserContractLookup', () => {
         let failed = false;
 
         try {
-            await userContractLookup.init(userRegistry.web3Contract._address, { privateKey: privateKeyDeployment });
+            await userContractLookup.init(userRegistry.web3Contract._address, userRegistry.web3Contract._address, { privateKey: privateKeyDeployment });
         }
         catch (ex) {
             failed = true;

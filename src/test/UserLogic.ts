@@ -19,6 +19,9 @@ import * as fs from 'fs';
 import 'mocha';
 import Web3Type from '../types/web3';
 import { migrateUserRegistryContracts } from '../utils/deployment/migrateContracts';
+import { UserContractLookup } from '../../dist/ts/wrappedContracts/UserContractLookup';
+import { UserLogic } from '../../dist/ts/wrappedContracts/UserLogic';
+import { UserDB } from '../../dist/ts/wrappedContracts/UserDB';
 
 describe('UserLogic', () => {
 
@@ -27,6 +30,10 @@ describe('UserLogic', () => {
     const Web3 = require('web3');
     const web3: Web3Type = new Web3(configFile.develop.web3);
 
+    let userContractLookup: UserContractLookup;
+    let userLogic: UserLogic;
+    let userDB: UserDB;
+
     const privateKeyDeployment = configFile.develop.deployKey.startsWith('0x') ?
         configFile.develop.deployKey : '0x' + configFile.develop.deployKey;
 
@@ -34,6 +41,10 @@ describe('UserLogic', () => {
 
     it('should deploy the contracts', async () => {
         const contracts = await migrateUserRegistryContracts(web3);
+
+        userContractLookup = new UserContractLookup((web3 as any), contracts['./solidity_modules/ew-user-registry-contracts/dist/UserContractLookup.json']);
+        userLogic = new UserLogic((web3 as any), contracts['./solidity_modules/ew-user-registry-contracts/dist/UserLogic.json']);
+        userDB = new UserDB((web3 as any), contracts['./solidity_modules/ew-user-registry-contracts/dist/UserDB.json']);
 
         let numberContracts = 0;
 
@@ -53,4 +64,143 @@ describe('UserLogic', () => {
         assert.equal(numberContracts, 3);
 
     });
+
+    it('should have the right owner', async () => {
+
+        assert.equal(await userLogic.owner(), userContractLookup.web3Contract._address);
+
+    });
+
+    it('should have the right db', async () => {
+
+        assert.equal(await userLogic.db(), userDB.web3Contract._address);
+
+    });
+
+    it('should throw an error when calling init again', async () => {
+
+        let failed = false;
+
+        try {
+            await userLogic.init(userLogic.web3Contract._address, userLogic.web3Contract._address, { privateKey: privateKeyDeployment });
+        }
+        catch (ex) {
+            failed = true;
+        }
+
+        assert.isTrue(failed);
+    });
+
+    it('should gave the topAdmin rights to the deployer account', async () => {
+
+        assert.equal(await userLogic.getRolesRights(accountDeployment), 1);
+
+    });
+
+    it('should return 0 rights for random accounts', async () => {
+
+        assert.equal(await userLogic.getRolesRights('0x1000000000000000000000000000000000000005'), 0);
+
+    });
+
+    it('should return false when asking for a non-exising user', async () => {
+
+        assert.isFalse(await userLogic.doesUserExist('0x1000000000000000000000000000000000000005'));
+
+    });
+
+    it('should return empty values for a non existing user', async () => {
+
+        assert.deepEqual(await userLogic.getFullUser('0x1000000000000000000000000000000000000005'), {
+            0: '',
+            1: '0',
+            2: false,
+            _organization: '',
+            _roles: '0',
+            _active: false,
+        });
+
+    });
+
+    it('should fail when trying to set roles for a non-existing user', async () => {
+
+        let failed = false;
+        try {
+            await userLogic.setRoles('0x1000000000000000000000000000000000000005', 1, { privateKey: privateKeyDeployment });
+        } catch (ex) {
+            failed = true;
+        }
+        assert.isTrue(failed);
+
+    });
+
+    it('should return correct values for an existing user', async () => {
+
+        await userLogic.setUser('0x1000000000000000000000000000000000000005', 'TestOrganization', { privateKey: privateKeyDeployment });
+
+        assert.deepEqual(await userLogic.getFullUser('0x1000000000000000000000000000000000000005'), {
+            0: 'TestOrganization',
+            1: '0',
+            2: true,
+            _organization: 'TestOrganization',
+            _roles: '0',
+            _active: true,
+        });
+
+    });
+
+    it('should fail trying to set roles as non user-Admin', async () => {
+
+        let failed = false;
+        try {
+            await userLogic.setRoles('0x1000000000000000000000000000000000000005', 1, { privateKey: '0x191c4b074672d9eda0ce576cfac79e44e320ffef5e3aadd55e000de57341d36c' });
+        } catch (ex) {
+            failed = true;
+        }
+        assert.isTrue(failed);
+
+    });
+
+    it('should fail trying to set roles as non user-Admin', async () => {
+
+        await userLogic.setRoles('0x1000000000000000000000000000000000000005', 1, { privateKey: privateKeyDeployment });
+
+        assert.equal(await userLogic.getRolesRights('0x1000000000000000000000000000000000000005'), 1);
+        assert.deepEqual(await userLogic.getFullUser('0x1000000000000000000000000000000000000005'), {
+            0: 'TestOrganization',
+            1: '1',
+            2: true,
+            _organization: 'TestOrganization',
+            _roles: '1',
+            _active: true,
+        });
+
+    });
+
+    it('should return true when asking for an exising user', async () => {
+
+        assert.isTrue(await userLogic.doesUserExist('0x1000000000000000000000000000000000000005'));
+
+    });
+
+    it('should fail when trying to deactive an active admin-account', async () => {
+
+        let failed = false;
+        try {
+            await userLogic.deactivateUser('0x1000000000000000000000000000000000000005', { privateKey: privateKeyDeployment });
+        } catch (ex) {
+            failed = true;
+        }
+        assert.isTrue(failed);
+
+    });
+
+    it('should deactive user when he is not an admin anymore', async () => {
+
+        await userLogic.setRoles('0x1000000000000000000000000000000000000005', 48, { privateKey: privateKeyDeployment });
+        await userLogic.deactivateUser('0x1000000000000000000000000000000000000005', { privateKey: privateKeyDeployment });
+        assert.isFalse(await userLogic.doesUserExist('0x1000000000000000000000000000000000000005'));
+
+    });
+
 });
