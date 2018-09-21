@@ -14,7 +14,7 @@
 //
 // @authors: slock.it GmbH, Martin Kuechler, martin.kuechler@slock.it
 
-import { expect, assert } from 'chai';
+import { assert } from 'chai';
 import * as fs from 'fs';
 import 'mocha';
 import Web3Type from '../types/web3';

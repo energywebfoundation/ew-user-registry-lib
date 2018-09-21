@@ -18,7 +18,7 @@
     "build-and-deploy": "npm run build-ts && npm run deploy-contracts",
     "deploy-contracts": "node dist/js/src/utils/deployment/startDeploy",
     "prepare-wrapping": "rm -rf dist/ts/wrappedContracts && mkdir -p dist/ts/wrappedContracts && node wrapping.js",
-    "prebuild-ts": "rm -rf build/ts",
+    "prebuild-ts": "rm -rf dist/js",
     "build-ts": "node_modules/typescript/bin/tsc && cp src/types/*.d.ts dist/js/src/types/"
   },
   "repository": {

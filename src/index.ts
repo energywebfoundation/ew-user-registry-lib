@@ -1,3 +1,4 @@
+
 /* 
 export { Asset, AssetProperties, AssetType, Compliance } from './blockchain-facade/Asset/Asset'
 export { Certificate, CertificateProperties } from './blockchain-facade/Trading/Certificate'
@@ -13,3 +14,5 @@ export { General } from './blockchain-facade/General'
  */
 
 export { migrateUserRegistryContracts } from './utils/deployment/migrateContracts';
+export { UserContractLookup } from '../dist/ts/wrappedContracts/UserContractLookup';
+export { UserLogic } from '../dist/ts/wrappedContracts/UserLogic';
