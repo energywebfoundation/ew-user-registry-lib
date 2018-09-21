@@ -11,3 +11,5 @@ export { User } from './blockchain-facade/Users/User'
 export { General } from './blockchain-facade/General'
 
  */
+
+export { migrateUserRegistryContracts } from './utils/deployment/migrateContracts';
