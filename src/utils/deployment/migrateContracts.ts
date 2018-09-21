@@ -1,6 +1,6 @@
 import { Sloffle } from 'sloffle';
 import Web3Type from '../../types/web3';
-import { UserContractLookup } from '../../../dist/ts/wrappedContracts/UserContractLookup';
+import { UserContractLookup } from '../..';
 import * as fs from 'fs';
 
 export async function migrateUserRegistryContracts(web3: Web3Type): Promise<JSON> {
