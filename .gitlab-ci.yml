@@ -11,6 +11,10 @@ build-pkg:
     - short-jobs
   script:
     - sh /prepare.sh
+    - npm install -g spm
+    - npm install 
+    - spm install
+    - npm run prepare-wrapping && npm run build-ts
 
   artifacts:
     name: build-js
