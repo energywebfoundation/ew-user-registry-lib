@@ -15,7 +15,7 @@ build-pkg:
   artifacts:
     name: build-js
     paths:
-      - build/
+      - dist/
 
 test-parity:
   tags:
