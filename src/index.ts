@@ -12,7 +12,8 @@ export { User } from './blockchain-facade/Users/User'
 export { General } from './blockchain-facade/General'
 
  */
+import { migrateUserRegistryContracts } from './utils/deployment/migrateContracts';
+import { UserContractLookup } from '../dist/ts/wrappedContracts/UserContractLookup';
+import { UserLogic } from '../dist/ts/wrappedContracts/UserLogic';
 
-export { migrateUserRegistryContracts } from './utils/deployment/migrateContracts';
-export { UserContractLookup } from '../dist/ts/wrappedContracts/UserContractLookup';
-export { UserLogic } from '../dist/ts/wrappedContracts/UserLogic';
+export { migrateUserRegistryContracts, UserContractLookup, UserLogic };
