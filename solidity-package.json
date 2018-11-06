@@ -1,7 +1,0 @@
-{
-    "name": "ew-user-registry-lib",
-    "dependencies": {
-        "ew-utils-general-contracts": "https://git.slock.it/ewf/origin/utils/ew-utils-general-contracts",
-        "ew-user-registry-contracts": "https://git.slock.it/ewf/origin/user-registry/ew-user-registry-contracts"
-    }
-}

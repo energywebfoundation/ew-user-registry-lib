@@ -13,53 +13,72 @@
 // GNU General Public License for more details, at <http://www.gnu.org/licenses/>.
 //
 // @authors: slock.it GmbH, Martin Kuechler, martin.kuechler@slock.it
-/*
-import { expect, assert } from 'chai';
-import 'mocha';
-import Web3Type from '../types/web3';
+
+import { assert } from 'chai';
 import * as fs from 'fs';
-import { TestAccounts } from '../utils/testing/TestAccounts'
-
-import { makeSnapshot, revertSnapshot, getInstanceFromBuild } from '../utils/testing/utils'
-import { prepare } from '../utils/testing/preparation'
-import { Configuration } from '../blockchain-facade/Configuration';
-import { UserProperties, User, UserPropertiesOffChain } from '../blockchain-facade/Users/User';
-import { UserLogic } from '../contractWrapper/UserLogic';
-import { logger } from './Logger';
-
-const Web3 = require('web3')
+import 'mocha';
+import { Web3Type } from '../types/web3';
+import { UserLogic, UserContractLookup, migrateUserRegistryContracts } from 'ew-user-registry-contracts';
+import { UserProperties, UserPropertiesOffChain, User } from '../blockchain-facade/Users/User';
+import { Configuration } from 'ew-utils-general-lib';
+import { logger } from '../blockchain-facade/Logger';
+const Web3 = require('web3');
 
 describe('UserLogic Facade', () => {
-    let web3: Web3Type;
-    let snapShotId: Number
+    const configFile = JSON.parse(fs.readFileSync(process.cwd() + '/connection-config.json', 'utf8'));
 
-    let conf: Configuration
+    const Web3 = require('web3');
+    const web3: Web3Type = new Web3(configFile.develop.web3);
 
-    const init = async () => {
-        web3 = new Web3('http://localhost:8545')
-    }
+    let userContractLookup: UserContractLookup;
+    let userRegistry: UserLogic;
 
-    before(async () => {
-        await init();
-        snapShotId = await makeSnapshot(web3)
-        await prepare(web3)
-    });
+    const privateKeyDeployment = configFile.develop.deployKey.startsWith('0x') ?
+        configFile.develop.deployKey : '0x' + configFile.develop.deployKey;
 
-    after(async () => {
-        await revertSnapshot(snapShotId, web3)
+    const accountDeployment = web3.eth.accounts.privateKeyToAccount(privateKeyDeployment).address;
+    let conf: Configuration;
+
+    const user1PK = '0xfaab95e72c3ac39f7c060125d9eca3558758bb248d1a4cdc9c1b7fd3f91a4485';
+    const user1 = web3.eth.accounts.privateKeyToAccount(user1PK).address;
+
+    it('should deploy the contracts', async () => {
+
+        const contracts = await migrateUserRegistryContracts((web3 as any));
+
+        userContractLookup = new UserContractLookup((web3 as any));
+        userRegistry = new UserLogic((web3 as any));
+
+        let numberContracts = 0;
+
+        Object.keys(contracts).forEach(async (key) => {
+            numberContracts += 1;
+
+            const deployedBytecode = await web3.eth.getCode(contracts[key]);
+            assert.isTrue(deployedBytecode.length > 0);
+
+            const contractInfo = JSON.parse(fs.readFileSync(key, 'utf8'));
+
+            const tempBytecode = contractInfo.deployedBytecode.startsWith('0x') ? contractInfo.deployedBytecode : '0x' + contractInfo.deployedBytecode;
+            assert.equal(deployedBytecode, tempBytecode);
+
+        });
+
+        assert.equal(numberContracts, 3);
+
     });
 
     it('should create a user', async () => {
 
         const userProps: UserProperties = {
-            id: TestAccounts.user1,
+            id: user1,
             active: true,
             roles: 27,
-            organization: "Testorganization"
-        }
+            organization: 'Testorganization',
+        };
 
-        const userPropsOffchain: UserPropertiesOffChain =  {
- 
+        const userPropsOffchain: UserPropertiesOffChain = {
+
             firstName: 'John',
             surname: 'Doe',
             street: 'Evergreen Terrace',
@@ -67,35 +86,33 @@ describe('UserLogic Facade', () => {
             zip: '14789',
             city: 'Shelbyville',
             country: 'US',
-            state: 'FL'
-        
-        }
-        
+            state: 'FL',
+
+        };
+
         conf = {
             blockchainProperties: {
-                web3: web3,
-                userLogicInstance: new UserLogic(web3),
+                web3,
+                userLogicInstance: userRegistry,
                 activeUser: {
-                    address: TestAccounts.userAdmin, privateKey: "0x" + TestAccounts.userAdminPK
-                }
+                    address: accountDeployment, privateKey: privateKeyDeployment,
+                },
             },
-            logger: logger
+            logger,
 
-        }
+        };
 
-        const user = await User.CREATE_USER(userProps, userPropsOffchain, conf)
+        const user = await User.CREATE_USER(userProps, userPropsOffchain, conf);
 
-        delete user.configuration
-        delete user.proofs
+        delete user.configuration;
+        delete user.proofs;
 
         assert.deepEqual({
-            id: '0x87CEC041a6CdcD349124Fd6B93C0ab3012647cc3',
+            id: user1,
             organization: 'Testorganization',
             roles: 27,
-            active: true
-        } as any, user)
-    })
+            active: true,
+        } as any,        user);
+    });
 
 });
-
-*/
