@@ -42,6 +42,9 @@ describe('UserLogic Facade', () => {
     const user1PK = '0xfaab95e72c3ac39f7c060125d9eca3558758bb248d1a4cdc9c1b7fd3f91a4485';
     const user1 = web3.eth.accounts.privateKeyToAccount(user1PK).address;
 
+    const user2PK = '0x2dc5120c26df339dbd9861a0f39a79d87e0638d30fdedc938861beac77bbd3f5';
+    const user2 = web3.eth.accounts.privateKeyToAccount(user2PK).address;
+
     it('should deploy the contracts', async () => {
 
         const contracts = await migrateUserRegistryContracts((web3 as any));
@@ -113,6 +116,44 @@ describe('UserLogic Facade', () => {
             roles: 27,
             active: true,
         } as any,        user);
+    });
+
+    it('should return correct user', async () => {
+
+        const user = await (new User(user1, conf)).sync();
+
+        delete user.configuration;
+
+        assert.deepEqual(user, {
+            id: user1,
+            proofs: [],
+            organization: 'Testorganization',
+            roles: 27,
+            active: true,
+        });
+
+        const emptyAccount = await (new User(user2, conf)).sync();
+        delete emptyAccount.configuration;
+
+        assert.deepEqual(emptyAccount, {
+            id: user2,
+            proofs: [],
+            organization: '',
+            roles: 0,
+            active: false,
+        });
+
+        const adminAccount = await (new User(accountDeployment, conf)).sync();
+        delete adminAccount.configuration;
+
+        assert.deepEqual(adminAccount, {
+            id: accountDeployment,
+            proofs: [],
+            organization: '',
+            roles: 1,
+            active: false,
+        });
+
     });
 
 });
