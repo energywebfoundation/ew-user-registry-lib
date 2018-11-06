@@ -11,10 +11,8 @@ build-pkg:
     - short-jobs
   script:
     - sh /prepare.sh
-    - npm install -g spm
     - npm install 
-    - spm install
-    - npm run prepare-wrapping && npm run build-ts
+    - npm run build-ts
 
   artifacts:
     name: build-js
@@ -31,10 +29,21 @@ test-parity:
   script:
     - sh /prepare.sh
     - cp ci.connection-config.json connection-config.json 
-    - npm install -g spm
     - npm install 
-    - spm install
-    - npm test || true
+    - npm test 
+
+test-parity-POA:
+  tags:
+    - short-jobs
+  stage: test
+  services:
+    - name: docker.slock.it/build-images/parity:v1.11.8-tobalaba-poa
+      alias: parity
+  script:
+    - sh /prepare.sh
+    - cp ci.connection-config.json connection-config.json 
+    - npm install 
+    - npm test
 
 test-ganache:
   tags:
@@ -42,9 +51,7 @@ test-ganache:
   stage: test
   script:
     - sh /prepare.sh
-    - npm install -g spm
     - npm install 
-    - spm install
     - npm run start-ganache > /dev/null 2>&1 &
     - npm test
 
