@@ -42,8 +42,10 @@ export class User extends BlockchainDataModelEntity implements UserProperties {
                 from: configuration.blockchainProperties.activeUser.address,
                 privateKey: configuration.blockchainProperties.activeUser.privateKey,
             });
-
-        configuration.logger.info(`User ${userProperties.id} synced`);
+        if (configuration.logger) {
+            configuration.logger.info(`User ${userProperties.id} synced`);
+        }
+        
         return (new User(userProperties.id, configuration)).sync();
     }
 

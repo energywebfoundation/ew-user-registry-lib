@@ -54,9 +54,9 @@ describe('UserLogic Facade', () => {
 
   
 
-        // const bytecodeUserContractLookup = await web3.eth.getCode(contracts.UserContractLookup);
-        // assert.isTrue(bytecodeUserContractLookup.length > 0);
-        // assert.equal(bytecodeUserContractLookup, '0x' + UserContractLookupJSON.bytecode);
+        const bytecodeUserContractLookup = await web3.eth.getCode(contracts.UserContractLookup);
+        assert.isTrue(bytecodeUserContractLookup.length > 0);
+        assert.equal(bytecodeUserContractLookup, '0x' + UserContractLookupJSON.bytecode);
 
 
      
