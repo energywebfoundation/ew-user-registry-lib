@@ -22,7 +22,7 @@ import { UserLogic, UserContractLookup, migrateUserRegistryContracts } from 'ew-
 import { UserProperties, UserPropertiesOffChain, User } from '../blockchain-facade/Users/User';
 import { Configuration } from 'ew-utils-general-lib';
 import { logger } from '../blockchain-facade/Logger';
-const Web3 = require('web3');
+import Web3 = require('web3');
 
 describe('UserLogic Facade', () => {
     const configFile = JSON.parse(fs.readFileSync(process.cwd() + '/connection-config.json', 'utf8'));
@@ -47,7 +47,7 @@ describe('UserLogic Facade', () => {
 
     it('should deploy the contracts', async () => {
 
-        const contracts = await migrateUserRegistryContracts((web3 as any));
+        const contracts = await migrateUserRegistryContracts((web3 as any), privateKeyDeployment);
 
         userContractLookup = new UserContractLookup((web3 as any));
         userRegistry = new UserLogic((web3 as any));
