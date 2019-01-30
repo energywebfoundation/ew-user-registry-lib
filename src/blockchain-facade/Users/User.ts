@@ -67,7 +67,10 @@ export class User extends BlockchainDataModelEntity implements UserProperties {
             this.organization = userData._organization;
             this.roles = parseInt(userData._roles, 10);
             this.active = userData._active;
-            this.configuration.logger.verbose(`User ${this.id} synced`);
+            if (this.configuration.logger) {
+                this.configuration.logger.verbose(`User ${this.id} synced`);
+            }
+            
 
         }
         return this;
