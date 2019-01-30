@@ -18,7 +18,7 @@ import { assert } from 'chai';
 import * as fs from 'fs';
 import 'mocha';
 import { Web3Type } from '../types/web3';
-import { UserLogic, UserContractLookup, migrateUserRegistryContracts, UserLogicJSON} from 'ew-user-registry-contracts';
+import { UserLogic, UserContractLookup, migrateUserRegistryContracts, UserContractLookupJSON, UserLogicJSON} from 'ew-user-registry-contracts';
 import { UserProperties, UserPropertiesOffChain, User } from '../blockchain-facade/Users/User';
 import { Configuration } from 'ew-utils-general-lib';
 import { logger } from '../blockchain-facade/Logger';
@@ -52,21 +52,14 @@ describe('UserLogic Facade', () => {
         userContractLookup = new UserContractLookup((web3 as any), contracts.UserContractLookup);
         userRegistry = new UserLogic((web3 as any), await userContractLookup.userRegistry());
 
-        let numberContracts = 0;
+  
 
-        Object.keys(contracts).forEach(async (key) => {
-            numberContracts += 1;
+        // const bytecodeUserContractLookup = await web3.eth.getCode(contracts.UserContractLookup);
+        // assert.isTrue(bytecodeUserContractLookup.length > 0);
+        // assert.equal(bytecodeUserContractLookup, '0x' + UserContractLookupJSON.bytecode);
 
-            const deployedBytecode = await web3.eth.getCode(contracts[key]);
-            //console.log(key)
-            assert.isTrue(deployedBytecode.length > 0);
 
      
-           // assert.equal(deployedBytecode, tempBytecode);
-
-        });
-
-        assert.equal(numberContracts, 3);
 
     });
 
