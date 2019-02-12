@@ -36,7 +36,7 @@
     "ew-user-registry-contracts": "0.0.9",
     "ew-utils-general-lib": "0.0.1",
     "web3": "1.0.0-beta.37",
-    "winston": "3.0.0"
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",
