@@ -12,16 +12,15 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details, at <http://www.gnu.org/licenses/>.
 //
-// @authors: slock.it GmbH; Heiko Burkhardt, heiko.burkhardt@slock.it; Martin Kuechler, martin.kuchler@slock.it
+// @authors: slock.it GmbH; Martin Kuechler, martin.kuchler@slock.it; Heiko Burkhardt, heiko.burkhardt@slock.it
 
-export { UserLogic } from './wrappedContracts/UserLogic';
-export { UserContractLookup } from './wrappedContracts/UserContractLookup';
-export { migrateUserRegistryContracts } from './utils/migrateContracts';
+pragma solidity ^0.5.0;
 
-import UserDBJSON from '../contract-build/UserDB.json';
-import UserLogicJSON from '../contract-build/UserLogic.json';
-import UserContractLookupJSON from '../contract-build/UserContractLookup.json';
-export { UserDBJSON, UserLogicJSON, UserContractLookupJSON };
+/// @title this interface defines functions for defining functions of the user-logic in order to call them in different contracts
+interface UserContractLookupInterface {
 
-export { User, UserPropertiesOffChain, UserProperties } from './blockchain-facade/Users/User';
-export { createBlockchainProperties } from './blockchain-facade/BlockchainPropertiesFactory';
+    /// @notice function that returns the address of the UserLogic.sol contracts registered in the UserContractLookup-contract
+    /// @return the address of the UserLogic-contract
+    function userRegistry() external view returns (address);
+
+}

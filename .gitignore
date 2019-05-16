@@ -2,3 +2,4 @@
 node_modules
 dist
 solidity_modules
+contract-build
