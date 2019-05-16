@@ -5,7 +5,7 @@ import Web3 = require('web3');
 import { Tx, BlockType } from 'web3/eth/types';
 import { TransactionReceipt, Logs } from 'web3/types';
 import { JsonRPCResponse } from 'web3/providers';
-import RoleManagementJSON from '../../contract-build/RoleManagement.json';
+import RoleManagementJSON from '../../build/contracts/RoleManagement.json';
 
 export class RoleManagement extends GeneralFunctions {
     web3: Web3;
@@ -17,7 +17,7 @@ export class RoleManagement extends GeneralFunctions {
                 ? new web3.eth.Contract(RoleManagementJSON.abi, address)
                 : new web3.eth.Contract(
                       RoleManagementJSON.abi,
-                      RoleManagementJSON.networks.length > 0 ? RoleManagementJSON.networks[0] : null
+                      (RoleManagementJSON as any).networks.length > 0 ? RoleManagementJSON.networks[0] : null
                   )
         );
         this.web3 = web3;

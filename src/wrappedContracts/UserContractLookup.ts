@@ -5,7 +5,7 @@ import Web3 = require('web3');
 import { Tx, BlockType } from 'web3/eth/types';
 import { TransactionReceipt, Logs } from 'web3/types';
 import { JsonRPCResponse } from 'web3/providers';
-import UserContractLookupJSON from '../../contract-build/UserContractLookup.json';
+import UserContractLookupJSON from '../../build/contracts/UserContractLookup.json';
 
 export class UserContractLookup extends GeneralFunctions {
     web3: Web3;
@@ -17,7 +17,7 @@ export class UserContractLookup extends GeneralFunctions {
                 ? new web3.eth.Contract(UserContractLookupJSON.abi, address)
                 : new web3.eth.Contract(
                       UserContractLookupJSON.abi,
-                      UserContractLookupJSON.networks.length > 0
+                      (UserContractLookupJSON as any).networks.length > 0
                           ? UserContractLookupJSON.networks[0]
                           : null
                   )

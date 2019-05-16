@@ -17,7 +17,7 @@
 import * as EwGeneralLib from 'ew-utils-general-lib';
 import * as Winston from 'winston';
 import Web3 from 'web3';
-import { UserContractLookupJSON, UserContractLookup, UserLogic } from 'ew-user-registry-contracts';
+import { UserContractLookupJSON, UserContractLookup, UserLogic } from '..';
 
 export const createBlockchainProperties = async (
     logger: Winston.Logger,

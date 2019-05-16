@@ -20,10 +20,10 @@ import 'mocha';
 import {
     UserLogic,
     UserContractLookup,
-    migrateUserRegistryContracts,
     UserContractLookupJSON,
     UserLogicJSON
-} from 'ew-user-registry-contracts';
+} from '..';
+import { migrateUserRegistryContracts } from '../utils/migrateContracts';
 import { UserProperties, UserPropertiesOffChain, User } from '../blockchain-facade/Users/User';
 import { Configuration } from 'ew-utils-general-lib';
 import { logger } from '../blockchain-facade/Logger';

@@ -5,7 +5,7 @@ import Web3 = require('web3');
 import { Tx, BlockType } from 'web3/eth/types';
 import { TransactionReceipt, Logs } from 'web3/types';
 import { JsonRPCResponse } from 'web3/providers';
-import OwnedJSON from '../../contract-build/Owned.json';
+import OwnedJSON from '../../build/contracts/Owned.json';
 
 export class Owned extends GeneralFunctions {
     web3: Web3;
@@ -17,7 +17,7 @@ export class Owned extends GeneralFunctions {
                 ? new web3.eth.Contract(OwnedJSON.abi, address)
                 : new web3.eth.Contract(
                       OwnedJSON.abi,
-                      OwnedJSON.networks.length > 0 ? OwnedJSON.networks[0] : null
+                      (OwnedJSON as any).networks.length > 0 ? OwnedJSON.networks[0] : null
                   )
         );
         this.web3 = web3;

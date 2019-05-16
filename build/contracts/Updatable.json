@@ -40,9 +40,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// Copyright 2018 Energy Web Foundation\n// This file is part of the Origin Application brought to you by the Energy Web Foundation,\n// a global non-profit organization focused on accelerating blockchain technology across the energy sector,\n// incorporated in Zug, Switzerland.\n//\n// The Origin Application is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n// This is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY and without an implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details, at <http://www.gnu.org/licenses/>.\n//\n// @authors: slock.it GmbH;  Martin Kuechler, martin.kuchler@slock.it; Heiko Burkhardt, heiko.burkhardt@slock.it\n\npragma solidity ^0.5.0;\n\n/// @title this interface defines the required update-function that every updatable-contract has to implement\ninterface Updatable {\n\n   function update(address _newLogic) external;\n   function init(address _database, address _admin) external;\n\n\n}\n",
-  "sourcePath": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
+  "sourcePath": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
   "ast": {
-    "absolutePath": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
+    "absolutePath": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
     "exportedSymbols": {
       "Updatable": [
         742
@@ -220,7 +220,7 @@
     "src": "929:272:7"
   },
   "legacyAST": {
-    "absolutePath": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
+    "absolutePath": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
     "exportedSymbols": {
       "Updatable": [
         742
@@ -403,7 +403,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.9",
-  "updatedAt": "2019-05-16T14:34:38.402Z",
+  "updatedAt": "2019-05-16T15:21:02.876Z",
   "devdoc": {
     "methods": {},
     "title": "this interface defines the required update-function that every updatable-contract has to implement"

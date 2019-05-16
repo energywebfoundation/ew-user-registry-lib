@@ -94,12 +94,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_userRegistry\",\"type\":\"address\"}],\"name\":\"update\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"userRegistry\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"changeOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_userRegistry\",\"type\":\"address\"},{\"name\":\"_db\",\"type\":\"address\"}],\"name\":\"init\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"LogChangeOwner\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"changeOwner(address)\":{\"params\":{\"_newOwner\":\"The address of the new owner\"}},\"init(address,address)\":{\"params\":{\"_db\":\"the database-contract of the user-registry-system\",\"_userRegistry\":\"user-registry logic contract address\"}},\"update(address)\":{\"params\":{\"_userRegistry\":\"address of the new user-registry-logic-contract\"}},\"userRegistry()\":{\"details\":\"this function will be called by external contracts\",\"return\":\"the user-Registry\"}},\"title\":\"Contract for storing the current logic-contracts-addresses for the certificate of origin\"},\"userdoc\":{\"methods\":{\"changeOwner(address)\":{\"notice\":\"`owner` can step down and assign some other address to this role\"},\"constructor\":\"The constructor\",\"init(address,address)\":{\"notice\":\"function to initialize the contracts, setting the needed contract-addresses\"},\"update(address)\":{\"notice\":\"function to update one or more logic-contracts\"},\"userRegistry()\":{\"notice\":\"returns the current userRegistryLogic that has access to the db\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol\":\"UserContractLookup\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/bagaricj/Code/ew-user-registry-lib/contracts/Interfaces/UserContractLookupInterface.sol\":{\"keccak256\":\"0x89bc7e18d88985408f2b0a7f4cf1465bcc02b4dd545028f1c61f677c5b272c53\",\"urls\":[\"bzzr://053b5e19fe110cdf17441a1aec2c9d2b47de73b06252d0bf4a38259be06d58e0\"]},\"/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol\":{\"keccak256\":\"0xc76a285fdaa2e7dafe769b8b678e975e80e2fb69a5f3f9af6c703bb4575d0702\",\"urls\":[\"bzzr://ecfdd7d67fc948f8c6594fe77fce1353bc7ee846b15fab39a684b0d61d20f68e\"]},\"ew-utils-general-contracts/contracts/Interfaces/Updatable.sol\":{\"keccak256\":\"0x9af6b5c1f035d3bf49535f36df7bd4cc8ab108f22a9a237e32d51c2ddebfeb36\",\"urls\":[\"bzzr://e4101704dc501d292bc16b5c515638d73e41d27dfe9f176c43a549e16ff0600b\"]},\"ew-utils-general-contracts/contracts/Msc/Owned.sol\":{\"keccak256\":\"0x3853bbd8dd399bf2efb8592f0d102f8025398f6872ea5d823cc94dba5ab6d68c\",\"urls\":[\"bzzr://f560494f32365ed0f8af8844f94283946bb3e5abfb17d0d83626a9961fa57604\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905561061e806100326000396000f3fe60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631c1b877281146100715780635c7460d6146100a65780638da5cb5b146100d7578063a6f9dae1146100ec578063f09a40161461011f575b600080fd5b34801561007d57600080fd5b506100a46004803603602081101561009457600080fd5b5035600160a060020a031661015a565b005b3480156100b257600080fd5b506100bb6102cb565b60408051600160a060020a039092168252519081900360200190f35b3480156100e357600080fd5b506100bb6102da565b3480156100f857600080fd5b506100a46004803603602081101561010f57600080fd5b5035600160a060020a03166102e9565b34801561012b57600080fd5b506100a46004803603604081101561014257600080fd5b50600160a060020a038135811691602001351661040c565b600054600160a060020a031633146101bc576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a038116151561021c576040805160e560020a62461bcd02815260206004820152601760248201527f7570646174653a2063616e6e6f742073657420746f2030000000000000000000604482015290519081900360640190fd5b600154604080517f1c1b8772000000000000000000000000000000000000000000000000000000008152600160a060020a03848116600483015291519190921691631c1b877291602480830192600092919082900301818387803b15801561028357600080fd5b505af1158015610297573d6000803e3d6000fd5b50506001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0394909416939093179092555050565b600154600160a060020a031690565b600054600160a060020a031681565b600054600160a060020a0316331461034b576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a03811615156103ab576040805160e560020a62461bcd02815260206004820152601860248201527f307830206173206f776e6572206e6f7420616c6c6f7765640000000000000000604482015290519081900360640190fd5b60008054600160a060020a03831673ffffffffffffffffffffffffffffffffffffffff19909116811790915560408051918252517f95fd54179c11867fb083dd94347ea50f144dd4cfd7612b7bca169f162824af169181900360200190a150565b600054600160a060020a0316331461046e576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a0382161580159061048f5750600154600160a060020a0316155b15156104e5576040805160e560020a62461bcd02815260206004820152601360248201527f616c726561647920696e697469616c697a656400000000000000000000000000604482015290519081900360640190fd5b600160a060020a0381161515610545576040805160e560020a62461bcd02815260206004820152600f60248201527f5f64622063616e6e6f7420626520300000000000000000000000000000000000604482015290519081900360640190fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a038481169190911791829055604080517ff09a401600000000000000000000000000000000000000000000000000000000815284831660048201523360248201529051929091169163f09a40169160448082019260009290919082900301818387803b1580156105d657600080fd5b505af11580156105ea573d6000803e3d6000fd5b50505050505056fea165627a7a72305820c5721e1a389efde475b1989173687ccaba57074cae50dbc549efc63a54ccb2f00029",
-  "deployedBytecode": "0x60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631c1b877281146100715780635c7460d6146100a65780638da5cb5b146100d7578063a6f9dae1146100ec578063f09a40161461011f575b600080fd5b34801561007d57600080fd5b506100a46004803603602081101561009457600080fd5b5035600160a060020a031661015a565b005b3480156100b257600080fd5b506100bb6102cb565b60408051600160a060020a039092168252519081900360200190f35b3480156100e357600080fd5b506100bb6102da565b3480156100f857600080fd5b506100a46004803603602081101561010f57600080fd5b5035600160a060020a03166102e9565b34801561012b57600080fd5b506100a46004803603604081101561014257600080fd5b50600160a060020a038135811691602001351661040c565b600054600160a060020a031633146101bc576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a038116151561021c576040805160e560020a62461bcd02815260206004820152601760248201527f7570646174653a2063616e6e6f742073657420746f2030000000000000000000604482015290519081900360640190fd5b600154604080517f1c1b8772000000000000000000000000000000000000000000000000000000008152600160a060020a03848116600483015291519190921691631c1b877291602480830192600092919082900301818387803b15801561028357600080fd5b505af1158015610297573d6000803e3d6000fd5b50506001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0394909416939093179092555050565b600154600160a060020a031690565b600054600160a060020a031681565b600054600160a060020a0316331461034b576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a03811615156103ab576040805160e560020a62461bcd02815260206004820152601860248201527f307830206173206f776e6572206e6f7420616c6c6f7765640000000000000000604482015290519081900360640190fd5b60008054600160a060020a03831673ffffffffffffffffffffffffffffffffffffffff19909116811790915560408051918252517f95fd54179c11867fb083dd94347ea50f144dd4cfd7612b7bca169f162824af169181900360200190a150565b600054600160a060020a0316331461046e576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a0382161580159061048f5750600154600160a060020a0316155b15156104e5576040805160e560020a62461bcd02815260206004820152601360248201527f616c726561647920696e697469616c697a656400000000000000000000000000604482015290519081900360640190fd5b600160a060020a0381161515610545576040805160e560020a62461bcd02815260206004820152600f60248201527f5f64622063616e6e6f7420626520300000000000000000000000000000000000604482015290519081900360640190fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a038481169190911791829055604080517ff09a401600000000000000000000000000000000000000000000000000000000815284831660048201523360248201529051929091169163f09a40169160448082019260009290919082900301818387803b1580156105d657600080fd5b505af11580156105ea573d6000803e3d6000fd5b50505050505056fea165627a7a72305820c5721e1a389efde475b1989173687ccaba57074cae50dbc549efc63a54ccb2f00029",
-  "sourceMap": "1253:1542:3:-;;;1403:41;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1327:5:8;:18;;-1:-1:-1;;;;;;1327:18:8;1423:10:3;1327:18:8;;;1253:1542:3;;;;;;",
-  "deployedSourceMap": "1253:1542:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2210:291;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2210:291:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;2210:291:3;-1:-1:-1;;;;;2210:291:3;;;;;2685:108;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2685:108:3;;;;;;;;-1:-1:-1;;;;;2685:108:3;;;;;;;;;;;;;;1186:20:8;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1186:20:8;;;;1488:203;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1488:203:8;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1488:203:8;-1:-1:-1;;;;;1488:203:8;;;1677:387:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1677:387:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;;;;;1677:387:3;;;;;;;;;;;2210:291;1095:5:8;;-1:-1:-1;;;;;1095:5:8;1081:10;:19;1072:56;;;;;-1:-1:-1;;;;;1072:56:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;2322:37:3;;;;2314:73;;;;;-1:-1:-1;;;;;2314:73:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;2397:20;;:51;;;;;;-1:-1:-1;;;;;2397:51:3;;;;;;;;;:20;;;;;:27;;:51;;;;;:20;;:51;;;;;;;:20;;:51;;;5:2:-1;;;;30:1;27;20:12;5:2;2397:51:3;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;;2458:20:3;:36;;-1:-1:-1;;2458:36:3;-1:-1:-1;;;;;2458:36:3;;;;;;;;;;;-1:-1:-1;;2210:291:3:o;2685:108::-;2765:20;;-1:-1:-1;;;;;2765:20:3;2685:108;:::o;1186:20:8:-;;;-1:-1:-1;;;;;1186:20:8;;:::o;1488:203::-;1095:5;;-1:-1:-1;;;;;1095:5:8;1081:10;:19;1072:56;;;;;-1:-1:-1;;;;;1072:56:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1566:23:8;;;;1558:59;;;;;-1:-1:-1;;;;;1558:59:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;1627:5;:17;;-1:-1:-1;;;;;1627:17:8;;-1:-1:-1;;1627:17:8;;;;;;;;1659:25;;;;;;;;;;;;;;;;1488:203;:::o;1677:387:3:-;1095:5:8;;-1:-1:-1;;;;;1095:5:8;1081:10;:19;1072:56;;;;;-1:-1:-1;;;;;1072:56:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1786:36:3;;;;;;:83;;-1:-1:-1;1834:20:3;;-1:-1:-1;;;;;1834:20:3;1826:43;1786:83;1778:115;;;;;;;-1:-1:-1;;;;;1778:115:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1911:28:3;;;;1903:56;;;;;-1:-1:-1;;;;;1903:56:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;1969:20;:36;;-1:-1:-1;;1969:36:3;-1:-1:-1;;;;;1969:36:3;;;;;;;;;;;2015:42;;;;;;;;;;;;;2046:10;2015:42;;;;;;:20;;;;;:25;;:42;;;;;-1:-1:-1;;2015:42:3;;;;;;;;-1:-1:-1;2015:20:3;:42;;;5:2:-1;;;;30:1;27;20:12;5:2;2015:42:3;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2015:42:3;;;;1677:387;;:::o",
-  "source": "// Copyright 2018 Energy Web Foundation\n// This file is part of the Origin Application brought to you by the Energy Web Foundation,\n// a global non-profit organization focused on accelerating blockchain technology across the energy sector,\n// incorporated in Zug, Switzerland.\n//\n// The Origin Application is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n// This is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY and without an implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details, at <http://www.gnu.org/licenses/>.\n//\n// @authors: slock.it GmbH; Martin Kuechler, martin.kuchler@slock.it; Heiko Burkhardt, heiko.burkhardt@slock.it\n\npragma solidity ^0.5.0;\n\nimport \"ew-utils-general-contracts/contracts/Msc/Owned.sol\";\nimport \"ew-utils-general-contracts/contracts/Interfaces/Updatable.sol\";\nimport \"../contracts/Interfaces/UserContractLookupInterface.sol\";\n\n/// @title Contract for storing the current logic-contracts-addresses for the certificate of origin\ncontract UserContractLookup is Owned, UserContractLookupInterface {\n\n    Updatable private userRegistryContract;\n\n    /// @notice The constructor\n    constructor() Owned(msg.sender) public{ }\n\n    /// @notice function to initialize the contracts, setting the needed contract-addresses\n    /// @param _userRegistry user-registry logic contract address\n    /// @param _db the database-contract of the user-registry-system\n    function init(Updatable _userRegistry, address _db)\n        external\n        onlyOwner\n    {\n        require(address(_userRegistry) != address(0) && address(userRegistryContract) == address(0), \"already initialized\");\n        require(address(_db) != address(0x0), \"_db cannot be 0\");\n        userRegistryContract = _userRegistry;\n        userRegistryContract.init(_db, msg.sender);\n    }\n\n    /// @notice function to update one or more logic-contracts\n    /// @param _userRegistry address of the new user-registry-logic-contract\n    function update(\n        Updatable _userRegistry\n    )\n        external\n        onlyOwner\n    {\n        require(address(_userRegistry)!= address(0x0), \"update: cannot set to 0\");\n        userRegistryContract.update(address(_userRegistry));\n        userRegistryContract = _userRegistry;\n    }\n\n    /// @notice returns the current userRegistryLogic that has access to the db\n    /// @dev this function will be called by external contracts\n    /// @return the user-Registry\n    function userRegistry() external view returns (address){\n        return address(userRegistryContract);\n    }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_userRegistry\",\"type\":\"address\"}],\"name\":\"update\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"userRegistry\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"changeOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_userRegistry\",\"type\":\"address\"},{\"name\":\"_db\",\"type\":\"address\"}],\"name\":\"init\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"LogChangeOwner\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"changeOwner(address)\":{\"params\":{\"_newOwner\":\"The address of the new owner\"}},\"init(address,address)\":{\"params\":{\"_db\":\"the database-contract of the user-registry-system\",\"_userRegistry\":\"user-registry logic contract address\"}},\"update(address)\":{\"params\":{\"_userRegistry\":\"address of the new user-registry-logic-contract\"}},\"userRegistry()\":{\"details\":\"this function will be called by external contracts\",\"return\":\"the user-Registry\"}},\"title\":\"Contract for storing the current logic-contracts-addresses for the certificate of origin\"},\"userdoc\":{\"methods\":{\"changeOwner(address)\":{\"notice\":\"`owner` can step down and assign some other address to this role\"},\"constructor\":\"The constructor\",\"init(address,address)\":{\"notice\":\"function to initialize the contracts, setting the needed contract-addresses\"},\"update(address)\":{\"notice\":\"function to update one or more logic-contracts\"},\"userRegistry()\":{\"notice\":\"returns the current userRegistryLogic that has access to the db\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol\":\"UserContractLookup\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/bagaricj/Code/ew-user-registry-lib/contracts/Interfaces/UserContractLookupInterface.sol\":{\"keccak256\":\"0x89bc7e18d88985408f2b0a7f4cf1465bcc02b4dd545028f1c61f677c5b272c53\",\"urls\":[\"bzzr://053b5e19fe110cdf17441a1aec2c9d2b47de73b06252d0bf4a38259be06d58e0\"]},\"/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol\":{\"keccak256\":\"0x83c619803729a4af0d5231e583d730bb55130d5b1a0c9f78856a272a94da6816\",\"urls\":[\"bzzr://a1c34766e89d11b63545a217ec2925ed717b47d37d30bb02a0928f77cf19db82\"]},\"ew-utils-general-lib/contracts/Interfaces/Updatable.sol\":{\"keccak256\":\"0x9af6b5c1f035d3bf49535f36df7bd4cc8ab108f22a9a237e32d51c2ddebfeb36\",\"urls\":[\"bzzr://e4101704dc501d292bc16b5c515638d73e41d27dfe9f176c43a549e16ff0600b\"]},\"ew-utils-general-lib/contracts/Msc/Owned.sol\":{\"keccak256\":\"0x3853bbd8dd399bf2efb8592f0d102f8025398f6872ea5d823cc94dba5ab6d68c\",\"urls\":[\"bzzr://f560494f32365ed0f8af8844f94283946bb3e5abfb17d0d83626a9961fa57604\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008054600160a060020a0319163317905561061e806100326000396000f3fe60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631c1b877281146100715780635c7460d6146100a65780638da5cb5b146100d7578063a6f9dae1146100ec578063f09a40161461011f575b600080fd5b34801561007d57600080fd5b506100a46004803603602081101561009457600080fd5b5035600160a060020a031661015a565b005b3480156100b257600080fd5b506100bb6102cb565b60408051600160a060020a039092168252519081900360200190f35b3480156100e357600080fd5b506100bb6102da565b3480156100f857600080fd5b506100a46004803603602081101561010f57600080fd5b5035600160a060020a03166102e9565b34801561012b57600080fd5b506100a46004803603604081101561014257600080fd5b50600160a060020a038135811691602001351661040c565b600054600160a060020a031633146101bc576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a038116151561021c576040805160e560020a62461bcd02815260206004820152601760248201527f7570646174653a2063616e6e6f742073657420746f2030000000000000000000604482015290519081900360640190fd5b600154604080517f1c1b8772000000000000000000000000000000000000000000000000000000008152600160a060020a03848116600483015291519190921691631c1b877291602480830192600092919082900301818387803b15801561028357600080fd5b505af1158015610297573d6000803e3d6000fd5b50506001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0394909416939093179092555050565b600154600160a060020a031690565b600054600160a060020a031681565b600054600160a060020a0316331461034b576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a03811615156103ab576040805160e560020a62461bcd02815260206004820152601860248201527f307830206173206f776e6572206e6f7420616c6c6f7765640000000000000000604482015290519081900360640190fd5b60008054600160a060020a03831673ffffffffffffffffffffffffffffffffffffffff19909116811790915560408051918252517f95fd54179c11867fb083dd94347ea50f144dd4cfd7612b7bca169f162824af169181900360200190a150565b600054600160a060020a0316331461046e576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a0382161580159061048f5750600154600160a060020a0316155b15156104e5576040805160e560020a62461bcd02815260206004820152601360248201527f616c726561647920696e697469616c697a656400000000000000000000000000604482015290519081900360640190fd5b600160a060020a0381161515610545576040805160e560020a62461bcd02815260206004820152600f60248201527f5f64622063616e6e6f7420626520300000000000000000000000000000000000604482015290519081900360640190fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a038481169190911791829055604080517ff09a401600000000000000000000000000000000000000000000000000000000815284831660048201523360248201529051929091169163f09a40169160448082019260009290919082900301818387803b1580156105d657600080fd5b505af11580156105ea573d6000803e3d6000fd5b50505050505056fea165627a7a7230582025505abc348c085312a52bd22fb9ff01edc264732216ea1c97a95585027a187f0029",
+  "deployedBytecode": "0x60806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631c1b877281146100715780635c7460d6146100a65780638da5cb5b146100d7578063a6f9dae1146100ec578063f09a40161461011f575b600080fd5b34801561007d57600080fd5b506100a46004803603602081101561009457600080fd5b5035600160a060020a031661015a565b005b3480156100b257600080fd5b506100bb6102cb565b60408051600160a060020a039092168252519081900360200190f35b3480156100e357600080fd5b506100bb6102da565b3480156100f857600080fd5b506100a46004803603602081101561010f57600080fd5b5035600160a060020a03166102e9565b34801561012b57600080fd5b506100a46004803603604081101561014257600080fd5b50600160a060020a038135811691602001351661040c565b600054600160a060020a031633146101bc576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a038116151561021c576040805160e560020a62461bcd02815260206004820152601760248201527f7570646174653a2063616e6e6f742073657420746f2030000000000000000000604482015290519081900360640190fd5b600154604080517f1c1b8772000000000000000000000000000000000000000000000000000000008152600160a060020a03848116600483015291519190921691631c1b877291602480830192600092919082900301818387803b15801561028357600080fd5b505af1158015610297573d6000803e3d6000fd5b50506001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0394909416939093179092555050565b600154600160a060020a031690565b600054600160a060020a031681565b600054600160a060020a0316331461034b576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a03811615156103ab576040805160e560020a62461bcd02815260206004820152601860248201527f307830206173206f776e6572206e6f7420616c6c6f7765640000000000000000604482015290519081900360640190fd5b60008054600160a060020a03831673ffffffffffffffffffffffffffffffffffffffff19909116811790915560408051918252517f95fd54179c11867fb083dd94347ea50f144dd4cfd7612b7bca169f162824af169181900360200190a150565b600054600160a060020a0316331461046e576040805160e560020a62461bcd02815260206004820152601760248201527f6d73672e73656e646572206973206e6f74206f776e6572000000000000000000604482015290519081900360640190fd5b600160a060020a0382161580159061048f5750600154600160a060020a0316155b15156104e5576040805160e560020a62461bcd02815260206004820152601360248201527f616c726561647920696e697469616c697a656400000000000000000000000000604482015290519081900360640190fd5b600160a060020a0381161515610545576040805160e560020a62461bcd02815260206004820152600f60248201527f5f64622063616e6e6f7420626520300000000000000000000000000000000000604482015290519081900360640190fd5b6001805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a038481169190911791829055604080517ff09a401600000000000000000000000000000000000000000000000000000000815284831660048201523360248201529051929091169163f09a40169160448082019260009290919082900301818387803b1580156105d657600080fd5b505af11580156105ea573d6000803e3d6000fd5b50505050505056fea165627a7a7230582025505abc348c085312a52bd22fb9ff01edc264732216ea1c97a95585027a187f0029",
+  "sourceMap": "1241:1542:3:-;;;1391:41;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1327:5:8;:18;;-1:-1:-1;;;;;;1327:18:8;1411:10:3;1327:18:8;;;1241:1542:3;;;;;;",
+  "deployedSourceMap": "1241:1542:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2198:291;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2198:291:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;2198:291:3;-1:-1:-1;;;;;2198:291:3;;;;;2673:108;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2673:108:3;;;;;;;;-1:-1:-1;;;;;2673:108:3;;;;;;;;;;;;;;1186:20:8;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1186:20:8;;;;1488:203;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1488:203:8;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1488:203:8;-1:-1:-1;;;;;1488:203:8;;;1665:387:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1665:387:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;;;;;;1665:387:3;;;;;;;;;;;2198:291;1095:5:8;;-1:-1:-1;;;;;1095:5:8;1081:10;:19;1072:56;;;;;-1:-1:-1;;;;;1072:56:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;2310:37:3;;;;2302:73;;;;;-1:-1:-1;;;;;2302:73:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;2385:20;;:51;;;;;;-1:-1:-1;;;;;2385:51:3;;;;;;;;;:20;;;;;:27;;:51;;;;;:20;;:51;;;;;;;:20;;:51;;;5:2:-1;;;;30:1;27;20:12;5:2;2385:51:3;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;;2446:20:3;:36;;-1:-1:-1;;2446:36:3;-1:-1:-1;;;;;2446:36:3;;;;;;;;;;;-1:-1:-1;;2198:291:3:o;2673:108::-;2753:20;;-1:-1:-1;;;;;2753:20:3;2673:108;:::o;1186:20:8:-;;;-1:-1:-1;;;;;1186:20:8;;:::o;1488:203::-;1095:5;;-1:-1:-1;;;;;1095:5:8;1081:10;:19;1072:56;;;;;-1:-1:-1;;;;;1072:56:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1566:23:8;;;;1558:59;;;;;-1:-1:-1;;;;;1558:59:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;1627:5;:17;;-1:-1:-1;;;;;1627:17:8;;-1:-1:-1;;1627:17:8;;;;;;;;1659:25;;;;;;;;;;;;;;;;1488:203;:::o;1665:387:3:-;1095:5:8;;-1:-1:-1;;;;;1095:5:8;1081:10;:19;1072:56;;;;;-1:-1:-1;;;;;1072:56:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1774:36:3;;;;;;:83;;-1:-1:-1;1822:20:3;;-1:-1:-1;;;;;1822:20:3;1814:43;1774:83;1766:115;;;;;;;-1:-1:-1;;;;;1766:115:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1899:28:3;;;;1891:56;;;;;-1:-1:-1;;;;;1891:56:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;1957:20;:36;;-1:-1:-1;;1957:36:3;-1:-1:-1;;;;;1957:36:3;;;;;;;;;;;2003:42;;;;;;;;;;;;;2034:10;2003:42;;;;;;:20;;;;;:25;;:42;;;;;-1:-1:-1;;2003:42:3;;;;;;;;-1:-1:-1;2003:20:3;:42;;;5:2:-1;;;;30:1;27;20:12;5:2;2003:42:3;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2003:42:3;;;;1665:387;;:::o",
+  "source": "// Copyright 2018 Energy Web Foundation\n// This file is part of the Origin Application brought to you by the Energy Web Foundation,\n// a global non-profit organization focused on accelerating blockchain technology across the energy sector,\n// incorporated in Zug, Switzerland.\n//\n// The Origin Application is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n// This is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY and without an implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details, at <http://www.gnu.org/licenses/>.\n//\n// @authors: slock.it GmbH; Martin Kuechler, martin.kuchler@slock.it; Heiko Burkhardt, heiko.burkhardt@slock.it\n\npragma solidity ^0.5.0;\n\nimport \"ew-utils-general-lib/contracts/Msc/Owned.sol\";\nimport \"ew-utils-general-lib/contracts/Interfaces/Updatable.sol\";\nimport \"../contracts/Interfaces/UserContractLookupInterface.sol\";\n\n/// @title Contract for storing the current logic-contracts-addresses for the certificate of origin\ncontract UserContractLookup is Owned, UserContractLookupInterface {\n\n    Updatable private userRegistryContract;\n\n    /// @notice The constructor\n    constructor() Owned(msg.sender) public{ }\n\n    /// @notice function to initialize the contracts, setting the needed contract-addresses\n    /// @param _userRegistry user-registry logic contract address\n    /// @param _db the database-contract of the user-registry-system\n    function init(Updatable _userRegistry, address _db)\n        external\n        onlyOwner\n    {\n        require(address(_userRegistry) != address(0) && address(userRegistryContract) == address(0), \"already initialized\");\n        require(address(_db) != address(0x0), \"_db cannot be 0\");\n        userRegistryContract = _userRegistry;\n        userRegistryContract.init(_db, msg.sender);\n    }\n\n    /// @notice function to update one or more logic-contracts\n    /// @param _userRegistry address of the new user-registry-logic-contract\n    function update(\n        Updatable _userRegistry\n    )\n        external\n        onlyOwner\n    {\n        require(address(_userRegistry)!= address(0x0), \"update: cannot set to 0\");\n        userRegistryContract.update(address(_userRegistry));\n        userRegistryContract = _userRegistry;\n    }\n\n    /// @notice returns the current userRegistryLogic that has access to the db\n    /// @dev this function will be called by external contracts\n    /// @return the user-Registry\n    function userRegistry() external view returns (address){\n        return address(userRegistryContract);\n    }\n}\n",
   "sourcePath": "/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol",
   "ast": {
     "absolutePath": "/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol",
@@ -123,24 +123,24 @@
         "src": "928:23:3"
       },
       {
-        "absolutePath": "ew-utils-general-contracts/contracts/Msc/Owned.sol",
-        "file": "ew-utils-general-contracts/contracts/Msc/Owned.sol",
+        "absolutePath": "ew-utils-general-lib/contracts/Msc/Owned.sol",
+        "file": "ew-utils-general-lib/contracts/Msc/Owned.sol",
         "id": 84,
         "nodeType": "ImportDirective",
         "scope": 195,
         "sourceUnit": 799,
-        "src": "953:60:3",
+        "src": "953:54:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
-        "file": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
+        "absolutePath": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
+        "file": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
         "id": 85,
         "nodeType": "ImportDirective",
         "scope": 195,
         "sourceUnit": 743,
-        "src": "1014:71:3",
+        "src": "1008:65:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -151,7 +151,7 @@
         "nodeType": "ImportDirective",
         "scope": 195,
         "sourceUnit": 25,
-        "src": "1086:65:3",
+        "src": "1074:65:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -165,7 +165,7 @@
               "name": "Owned",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 798,
-              "src": "1284:5:3",
+              "src": "1272:5:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_Owned_$798",
                 "typeString": "contract Owned"
@@ -173,7 +173,7 @@
             },
             "id": 88,
             "nodeType": "InheritanceSpecifier",
-            "src": "1284:5:3"
+            "src": "1272:5:3"
           },
           {
             "arguments": null,
@@ -183,7 +183,7 @@
               "name": "UserContractLookupInterface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 24,
-              "src": "1291:27:3",
+              "src": "1279:27:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_UserContractLookupInterface_$24",
                 "typeString": "contract UserContractLookupInterface"
@@ -191,7 +191,7 @@
             },
             "id": 90,
             "nodeType": "InheritanceSpecifier",
-            "src": "1291:27:3"
+            "src": "1279:27:3"
           }
         ],
         "contractDependencies": [
@@ -216,7 +216,7 @@
             "name": "userRegistryContract",
             "nodeType": "VariableDeclaration",
             "scope": 194,
-            "src": "1326:38:3",
+            "src": "1314:38:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -229,7 +229,7 @@
               "name": "Updatable",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 742,
-              "src": "1326:9:3",
+              "src": "1314:9:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_Updatable_$742",
                 "typeString": "contract Updatable"
@@ -242,7 +242,7 @@
             "body": {
               "id": 99,
               "nodeType": "Block",
-              "src": "1441:3:3",
+              "src": "1429:3:3",
               "statements": []
             },
             "documentation": "@notice The constructor",
@@ -261,7 +261,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 813,
-                      "src": "1423:3:3",
+                      "src": "1411:3:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
@@ -275,7 +275,7 @@
                     "memberName": "sender",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": null,
-                    "src": "1423:10:3",
+                    "src": "1411:10:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
                       "typeString": "address payable"
@@ -290,14 +290,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 798,
-                  "src": "1417:5:3",
+                  "src": "1405:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_type$_t_contract$_Owned_$798_$",
                     "typeString": "type(contract Owned)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1417:17:3"
+                "src": "1405:17:3"
               }
             ],
             "name": "",
@@ -306,16 +306,16 @@
               "id": 93,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1414:2:3"
+              "src": "1402:2:3"
             },
             "returnParameters": {
               "id": 98,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1441:0:3"
+              "src": "1429:0:3"
             },
             "scope": 194,
-            "src": "1403:41:3",
+            "src": "1391:41:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -324,7 +324,7 @@
             "body": {
               "id": 151,
               "nodeType": "Block",
-              "src": "1768:296:3",
+              "src": "1756:296:3",
               "statements": [
                 {
                   "expression": {
@@ -362,7 +362,7 @@
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 102,
-                                "src": "1794:13:3",
+                                "src": "1782:13:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_Updatable_$742",
                                   "typeString": "contract Updatable"
@@ -382,7 +382,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1786:7:3",
+                              "src": "1774:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -397,7 +397,7 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1786:22:3",
+                            "src": "1774:22:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -418,7 +418,7 @@
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1820:1:3",
+                                "src": "1808:1:3",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -440,7 +440,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1812:7:3",
+                              "src": "1800:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -455,13 +455,13 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1812:10:3",
+                            "src": "1800:10:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
                             }
                           },
-                          "src": "1786:36:3",
+                          "src": "1774:36:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -490,7 +490,7 @@
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 92,
-                                "src": "1834:20:3",
+                                "src": "1822:20:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_Updatable_$742",
                                   "typeString": "contract Updatable"
@@ -510,7 +510,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1826:7:3",
+                              "src": "1814:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -525,7 +525,7 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1826:29:3",
+                            "src": "1814:29:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -546,7 +546,7 @@
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1867:1:3",
+                                "src": "1855:1:3",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -568,7 +568,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1859:7:3",
+                              "src": "1847:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -583,19 +583,19 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1859:10:3",
+                            "src": "1847:10:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
                             }
                           },
-                          "src": "1826:43:3",
+                          "src": "1814:43:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "src": "1786:83:3",
+                        "src": "1774:83:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -611,7 +611,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1871:21:3",
+                        "src": "1859:21:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_6fad3ee6d344e662108f49bced409fae87c3af64246556bdd23a34dddc7e1adc",
@@ -639,7 +639,7 @@
                         817
                       ],
                       "referencedDeclaration": 817,
-                      "src": "1778:7:3",
+                      "src": "1766:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
@@ -653,7 +653,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1778:115:3",
+                    "src": "1766:115:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -661,7 +661,7 @@
                   },
                   "id": 127,
                   "nodeType": "ExpressionStatement",
-                  "src": "1778:115:3"
+                  "src": "1766:115:3"
                 },
                 {
                   "expression": {
@@ -688,7 +688,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 104,
-                              "src": "1919:3:3",
+                              "src": "1907:3:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -708,7 +708,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1911:7:3",
+                            "src": "1899:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -723,7 +723,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1911:12:3",
+                          "src": "1899:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -744,7 +744,7 @@
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1935:3:3",
+                              "src": "1923:3:3",
                               "subdenomination": null,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_rational_0_by_1",
@@ -766,7 +766,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1927:7:3",
+                            "src": "1915:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -781,13 +781,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1927:12:3",
+                          "src": "1915:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "1911:28:3",
+                        "src": "1899:28:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -803,7 +803,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1941:17:3",
+                        "src": "1929:17:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_74c127a7f9dafe1386a6b8d28c73d1f4d00d8e4da9537382e636f3c200e36d8f",
@@ -831,7 +831,7 @@
                         817
                       ],
                       "referencedDeclaration": 817,
-                      "src": "1903:7:3",
+                      "src": "1891:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
@@ -845,7 +845,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1903:56:3",
+                    "src": "1891:56:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -853,7 +853,7 @@
                   },
                   "id": 138,
                   "nodeType": "ExpressionStatement",
-                  "src": "1903:56:3"
+                  "src": "1891:56:3"
                 },
                 {
                   "expression": {
@@ -870,7 +870,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 92,
-                      "src": "1969:20:3",
+                      "src": "1957:20:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
@@ -885,13 +885,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 102,
-                      "src": "1992:13:3",
+                      "src": "1980:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
                       }
                     },
-                    "src": "1969:36:3",
+                    "src": "1957:36:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -899,7 +899,7 @@
                   },
                   "id": 142,
                   "nodeType": "ExpressionStatement",
-                  "src": "1969:36:3"
+                  "src": "1957:36:3"
                 },
                 {
                   "expression": {
@@ -912,7 +912,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 104,
-                        "src": "2041:3:3",
+                        "src": "2029:3:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -927,7 +927,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 813,
-                          "src": "2046:3:3",
+                          "src": "2034:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
@@ -941,7 +941,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "2046:10:3",
+                        "src": "2034:10:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -966,7 +966,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 92,
-                        "src": "2015:20:3",
+                        "src": "2003:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Updatable_$742",
                           "typeString": "contract Updatable"
@@ -980,7 +980,7 @@
                       "memberName": "init",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 741,
-                      "src": "2015:25:3",
+                      "src": "2003:25:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address) external"
@@ -994,7 +994,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2015:42:3",
+                    "src": "2003:42:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -1002,7 +1002,7 @@
                   },
                   "id": 150,
                   "nodeType": "ExpressionStatement",
-                  "src": "2015:42:3"
+                  "src": "2003:42:3"
                 }
               ]
             },
@@ -1021,14 +1021,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 756,
-                  "src": "1754:9:3",
+                  "src": "1742:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1754:9:3"
+                "src": "1742:9:3"
               }
             ],
             "name": "init",
@@ -1043,7 +1043,7 @@
                   "name": "_userRegistry",
                   "nodeType": "VariableDeclaration",
                   "scope": 152,
-                  "src": "1691:23:3",
+                  "src": "1679:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1056,7 +1056,7 @@
                     "name": "Updatable",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 742,
-                    "src": "1691:9:3",
+                    "src": "1679:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -1071,7 +1071,7 @@
                   "name": "_db",
                   "nodeType": "VariableDeclaration",
                   "scope": 152,
-                  "src": "1716:11:3",
+                  "src": "1704:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1082,7 +1082,7 @@
                     "id": 103,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1716:7:3",
+                    "src": "1704:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1093,16 +1093,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1690:38:3"
+              "src": "1678:38:3"
             },
             "returnParameters": {
               "id": 108,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1768:0:3"
+              "src": "1756:0:3"
             },
             "scope": 194,
-            "src": "1677:387:3",
+            "src": "1665:387:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -1111,7 +1111,7 @@
             "body": {
               "id": 182,
               "nodeType": "Block",
-              "src": "2304:197:3",
+              "src": "2292:197:3",
               "statements": [
                 {
                   "expression": {
@@ -1138,7 +1138,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 154,
-                              "src": "2330:13:3",
+                              "src": "2318:13:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Updatable_$742",
                                 "typeString": "contract Updatable"
@@ -1158,7 +1158,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "2322:7:3",
+                            "src": "2310:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -1173,7 +1173,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "2322:22:3",
+                          "src": "2310:22:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1194,7 +1194,7 @@
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "2355:3:3",
+                              "src": "2343:3:3",
                               "subdenomination": null,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_rational_0_by_1",
@@ -1216,7 +1216,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "2347:7:3",
+                            "src": "2335:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -1231,13 +1231,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "2347:12:3",
+                          "src": "2335:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "2322:37:3",
+                        "src": "2310:37:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1253,7 +1253,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2361:25:3",
+                        "src": "2349:25:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_3cd681c1333ee50a13f999af3cb2b885cedca2b6c2a33f8248a2bdea8f1203aa",
@@ -1281,7 +1281,7 @@
                         817
                       ],
                       "referencedDeclaration": 817,
-                      "src": "2314:7:3",
+                      "src": "2302:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
@@ -1295,7 +1295,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2314:73:3",
+                    "src": "2302:73:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -1303,7 +1303,7 @@
                   },
                   "id": 169,
                   "nodeType": "ExpressionStatement",
-                  "src": "2314:73:3"
+                  "src": "2302:73:3"
                 },
                 {
                   "expression": {
@@ -1319,7 +1319,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 154,
-                            "src": "2433:13:3",
+                            "src": "2421:13:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_Updatable_$742",
                               "typeString": "contract Updatable"
@@ -1339,7 +1339,7 @@
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "2425:7:3",
+                          "src": "2413:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
@@ -1354,7 +1354,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "2425:22:3",
+                        "src": "2413:22:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1375,7 +1375,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 92,
-                        "src": "2397:20:3",
+                        "src": "2385:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Updatable_$742",
                           "typeString": "contract Updatable"
@@ -1389,7 +1389,7 @@
                       "memberName": "update",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 734,
-                      "src": "2397:27:3",
+                      "src": "2385:27:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address) external"
@@ -1403,7 +1403,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2397:51:3",
+                    "src": "2385:51:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -1411,7 +1411,7 @@
                   },
                   "id": 177,
                   "nodeType": "ExpressionStatement",
-                  "src": "2397:51:3"
+                  "src": "2385:51:3"
                 },
                 {
                   "expression": {
@@ -1428,7 +1428,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 92,
-                      "src": "2458:20:3",
+                      "src": "2446:20:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
@@ -1443,13 +1443,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 154,
-                      "src": "2481:13:3",
+                      "src": "2469:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
                       }
                     },
-                    "src": "2458:36:3",
+                    "src": "2446:36:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -1457,7 +1457,7 @@
                   },
                   "id": 181,
                   "nodeType": "ExpressionStatement",
-                  "src": "2458:36:3"
+                  "src": "2446:36:3"
                 }
               ]
             },
@@ -1476,14 +1476,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 756,
-                  "src": "2290:9:3",
+                  "src": "2278:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2290:9:3"
+                "src": "2278:9:3"
               }
             ],
             "name": "update",
@@ -1498,7 +1498,7 @@
                   "name": "_userRegistry",
                   "nodeType": "VariableDeclaration",
                   "scope": 183,
-                  "src": "2235:23:3",
+                  "src": "2223:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1511,7 +1511,7 @@
                     "name": "Updatable",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 742,
-                    "src": "2235:9:3",
+                    "src": "2223:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -1521,16 +1521,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2225:39:3"
+              "src": "2213:39:3"
             },
             "returnParameters": {
               "id": 158,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2304:0:3"
+              "src": "2292:0:3"
             },
             "scope": 194,
-            "src": "2210:291:3",
+            "src": "2198:291:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -1539,7 +1539,7 @@
             "body": {
               "id": 192,
               "nodeType": "Block",
-              "src": "2740:53:3",
+              "src": "2728:53:3",
               "statements": [
                 {
                   "expression": {
@@ -1552,7 +1552,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 92,
-                        "src": "2765:20:3",
+                        "src": "2753:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Updatable_$742",
                           "typeString": "contract Updatable"
@@ -1572,7 +1572,7 @@
                       "isPure": true,
                       "lValueRequested": false,
                       "nodeType": "ElementaryTypeNameExpression",
-                      "src": "2757:7:3",
+                      "src": "2745:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_address_$",
                         "typeString": "type(address)"
@@ -1587,7 +1587,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2757:29:3",
+                    "src": "2745:29:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1596,7 +1596,7 @@
                   "functionReturnParameters": 187,
                   "id": 191,
                   "nodeType": "Return",
-                  "src": "2750:36:3"
+                  "src": "2738:36:3"
                 }
               ]
             },
@@ -1611,7 +1611,7 @@
               "id": 184,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2706:2:3"
+              "src": "2694:2:3"
             },
             "returnParameters": {
               "id": 187,
@@ -1623,7 +1623,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 193,
-                  "src": "2732:7:3",
+                  "src": "2720:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1634,7 +1634,7 @@
                     "id": 185,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2732:7:3",
+                    "src": "2720:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1645,20 +1645,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2731:9:3"
+              "src": "2719:9:3"
             },
             "scope": 194,
-            "src": "2685:108:3",
+            "src": "2673:108:3",
             "stateMutability": "view",
             "superFunction": 23,
             "visibility": "external"
           }
         ],
         "scope": 195,
-        "src": "1253:1542:3"
+        "src": "1241:1542:3"
       }
     ],
-    "src": "928:1868:3"
+    "src": "928:1856:3"
   },
   "legacyAST": {
     "absolutePath": "/Users/bagaricj/Code/ew-user-registry-lib/contracts/UserContractLookup.sol",
@@ -1682,24 +1682,24 @@
         "src": "928:23:3"
       },
       {
-        "absolutePath": "ew-utils-general-contracts/contracts/Msc/Owned.sol",
-        "file": "ew-utils-general-contracts/contracts/Msc/Owned.sol",
+        "absolutePath": "ew-utils-general-lib/contracts/Msc/Owned.sol",
+        "file": "ew-utils-general-lib/contracts/Msc/Owned.sol",
         "id": 84,
         "nodeType": "ImportDirective",
         "scope": 195,
         "sourceUnit": 799,
-        "src": "953:60:3",
+        "src": "953:54:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
-        "file": "ew-utils-general-contracts/contracts/Interfaces/Updatable.sol",
+        "absolutePath": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
+        "file": "ew-utils-general-lib/contracts/Interfaces/Updatable.sol",
         "id": 85,
         "nodeType": "ImportDirective",
         "scope": 195,
         "sourceUnit": 743,
-        "src": "1014:71:3",
+        "src": "1008:65:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -1710,7 +1710,7 @@
         "nodeType": "ImportDirective",
         "scope": 195,
         "sourceUnit": 25,
-        "src": "1086:65:3",
+        "src": "1074:65:3",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -1724,7 +1724,7 @@
               "name": "Owned",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 798,
-              "src": "1284:5:3",
+              "src": "1272:5:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_Owned_$798",
                 "typeString": "contract Owned"
@@ -1732,7 +1732,7 @@
             },
             "id": 88,
             "nodeType": "InheritanceSpecifier",
-            "src": "1284:5:3"
+            "src": "1272:5:3"
           },
           {
             "arguments": null,
@@ -1742,7 +1742,7 @@
               "name": "UserContractLookupInterface",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 24,
-              "src": "1291:27:3",
+              "src": "1279:27:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_UserContractLookupInterface_$24",
                 "typeString": "contract UserContractLookupInterface"
@@ -1750,7 +1750,7 @@
             },
             "id": 90,
             "nodeType": "InheritanceSpecifier",
-            "src": "1291:27:3"
+            "src": "1279:27:3"
           }
         ],
         "contractDependencies": [
@@ -1775,7 +1775,7 @@
             "name": "userRegistryContract",
             "nodeType": "VariableDeclaration",
             "scope": 194,
-            "src": "1326:38:3",
+            "src": "1314:38:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1788,7 +1788,7 @@
               "name": "Updatable",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 742,
-              "src": "1326:9:3",
+              "src": "1314:9:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_Updatable_$742",
                 "typeString": "contract Updatable"
@@ -1801,7 +1801,7 @@
             "body": {
               "id": 99,
               "nodeType": "Block",
-              "src": "1441:3:3",
+              "src": "1429:3:3",
               "statements": []
             },
             "documentation": "@notice The constructor",
@@ -1820,7 +1820,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 813,
-                      "src": "1423:3:3",
+                      "src": "1411:3:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
@@ -1834,7 +1834,7 @@
                     "memberName": "sender",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": null,
-                    "src": "1423:10:3",
+                    "src": "1411:10:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
                       "typeString": "address payable"
@@ -1849,14 +1849,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 798,
-                  "src": "1417:5:3",
+                  "src": "1405:5:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_type$_t_contract$_Owned_$798_$",
                     "typeString": "type(contract Owned)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1417:17:3"
+                "src": "1405:17:3"
               }
             ],
             "name": "",
@@ -1865,16 +1865,16 @@
               "id": 93,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1414:2:3"
+              "src": "1402:2:3"
             },
             "returnParameters": {
               "id": 98,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1441:0:3"
+              "src": "1429:0:3"
             },
             "scope": 194,
-            "src": "1403:41:3",
+            "src": "1391:41:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -1883,7 +1883,7 @@
             "body": {
               "id": 151,
               "nodeType": "Block",
-              "src": "1768:296:3",
+              "src": "1756:296:3",
               "statements": [
                 {
                   "expression": {
@@ -1921,7 +1921,7 @@
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 102,
-                                "src": "1794:13:3",
+                                "src": "1782:13:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_Updatable_$742",
                                   "typeString": "contract Updatable"
@@ -1941,7 +1941,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1786:7:3",
+                              "src": "1774:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -1956,7 +1956,7 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1786:22:3",
+                            "src": "1774:22:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1977,7 +1977,7 @@
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1820:1:3",
+                                "src": "1808:1:3",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -1999,7 +1999,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1812:7:3",
+                              "src": "1800:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -2014,13 +2014,13 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1812:10:3",
+                            "src": "1800:10:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
                             }
                           },
-                          "src": "1786:36:3",
+                          "src": "1774:36:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
@@ -2049,7 +2049,7 @@
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 92,
-                                "src": "1834:20:3",
+                                "src": "1822:20:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_contract$_Updatable_$742",
                                   "typeString": "contract Updatable"
@@ -2069,7 +2069,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1826:7:3",
+                              "src": "1814:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -2084,7 +2084,7 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1826:29:3",
+                            "src": "1814:29:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -2105,7 +2105,7 @@
                                 "kind": "number",
                                 "lValueRequested": false,
                                 "nodeType": "Literal",
-                                "src": "1867:1:3",
+                                "src": "1855:1:3",
                                 "subdenomination": null,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_rational_0_by_1",
@@ -2127,7 +2127,7 @@
                               "isPure": true,
                               "lValueRequested": false,
                               "nodeType": "ElementaryTypeNameExpression",
-                              "src": "1859:7:3",
+                              "src": "1847:7:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_type$_t_address_$",
                                 "typeString": "type(address)"
@@ -2142,19 +2142,19 @@
                             "lValueRequested": false,
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "1859:10:3",
+                            "src": "1847:10:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address_payable",
                               "typeString": "address payable"
                             }
                           },
-                          "src": "1826:43:3",
+                          "src": "1814:43:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "src": "1786:83:3",
+                        "src": "1774:83:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2170,7 +2170,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1871:21:3",
+                        "src": "1859:21:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_6fad3ee6d344e662108f49bced409fae87c3af64246556bdd23a34dddc7e1adc",
@@ -2198,7 +2198,7 @@
                         817
                       ],
                       "referencedDeclaration": 817,
-                      "src": "1778:7:3",
+                      "src": "1766:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
@@ -2212,7 +2212,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1778:115:3",
+                    "src": "1766:115:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -2220,7 +2220,7 @@
                   },
                   "id": 127,
                   "nodeType": "ExpressionStatement",
-                  "src": "1778:115:3"
+                  "src": "1766:115:3"
                 },
                 {
                   "expression": {
@@ -2247,7 +2247,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 104,
-                              "src": "1919:3:3",
+                              "src": "1907:3:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -2267,7 +2267,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1911:7:3",
+                            "src": "1899:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -2282,7 +2282,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1911:12:3",
+                          "src": "1899:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -2303,7 +2303,7 @@
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1935:3:3",
+                              "src": "1923:3:3",
                               "subdenomination": null,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_rational_0_by_1",
@@ -2325,7 +2325,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1927:7:3",
+                            "src": "1915:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -2340,13 +2340,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1927:12:3",
+                          "src": "1915:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "1911:28:3",
+                        "src": "1899:28:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2362,7 +2362,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1941:17:3",
+                        "src": "1929:17:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_74c127a7f9dafe1386a6b8d28c73d1f4d00d8e4da9537382e636f3c200e36d8f",
@@ -2390,7 +2390,7 @@
                         817
                       ],
                       "referencedDeclaration": 817,
-                      "src": "1903:7:3",
+                      "src": "1891:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
@@ -2404,7 +2404,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1903:56:3",
+                    "src": "1891:56:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -2412,7 +2412,7 @@
                   },
                   "id": 138,
                   "nodeType": "ExpressionStatement",
-                  "src": "1903:56:3"
+                  "src": "1891:56:3"
                 },
                 {
                   "expression": {
@@ -2429,7 +2429,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 92,
-                      "src": "1969:20:3",
+                      "src": "1957:20:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
@@ -2444,13 +2444,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 102,
-                      "src": "1992:13:3",
+                      "src": "1980:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
                       }
                     },
-                    "src": "1969:36:3",
+                    "src": "1957:36:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -2458,7 +2458,7 @@
                   },
                   "id": 142,
                   "nodeType": "ExpressionStatement",
-                  "src": "1969:36:3"
+                  "src": "1957:36:3"
                 },
                 {
                   "expression": {
@@ -2471,7 +2471,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 104,
-                        "src": "2041:3:3",
+                        "src": "2029:3:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2486,7 +2486,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 813,
-                          "src": "2046:3:3",
+                          "src": "2034:3:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
@@ -2500,7 +2500,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "2046:10:3",
+                        "src": "2034:10:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -2525,7 +2525,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 92,
-                        "src": "2015:20:3",
+                        "src": "2003:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Updatable_$742",
                           "typeString": "contract Updatable"
@@ -2539,7 +2539,7 @@
                       "memberName": "init",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 741,
-                      "src": "2015:25:3",
+                      "src": "2003:25:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$returns$__$",
                         "typeString": "function (address,address) external"
@@ -2553,7 +2553,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2015:42:3",
+                    "src": "2003:42:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -2561,7 +2561,7 @@
                   },
                   "id": 150,
                   "nodeType": "ExpressionStatement",
-                  "src": "2015:42:3"
+                  "src": "2003:42:3"
                 }
               ]
             },
@@ -2580,14 +2580,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 756,
-                  "src": "1754:9:3",
+                  "src": "1742:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "1754:9:3"
+                "src": "1742:9:3"
               }
             ],
             "name": "init",
@@ -2602,7 +2602,7 @@
                   "name": "_userRegistry",
                   "nodeType": "VariableDeclaration",
                   "scope": 152,
-                  "src": "1691:23:3",
+                  "src": "1679:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2615,7 +2615,7 @@
                     "name": "Updatable",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 742,
-                    "src": "1691:9:3",
+                    "src": "1679:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -2630,7 +2630,7 @@
                   "name": "_db",
                   "nodeType": "VariableDeclaration",
                   "scope": 152,
-                  "src": "1716:11:3",
+                  "src": "1704:11:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2641,7 +2641,7 @@
                     "id": 103,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1716:7:3",
+                    "src": "1704:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2652,16 +2652,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1690:38:3"
+              "src": "1678:38:3"
             },
             "returnParameters": {
               "id": 108,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1768:0:3"
+              "src": "1756:0:3"
             },
             "scope": 194,
-            "src": "1677:387:3",
+            "src": "1665:387:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -2670,7 +2670,7 @@
             "body": {
               "id": 182,
               "nodeType": "Block",
-              "src": "2304:197:3",
+              "src": "2292:197:3",
               "statements": [
                 {
                   "expression": {
@@ -2697,7 +2697,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 154,
-                              "src": "2330:13:3",
+                              "src": "2318:13:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_Updatable_$742",
                                 "typeString": "contract Updatable"
@@ -2717,7 +2717,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "2322:7:3",
+                            "src": "2310:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -2732,7 +2732,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "2322:22:3",
+                          "src": "2310:22:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -2753,7 +2753,7 @@
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "2355:3:3",
+                              "src": "2343:3:3",
                               "subdenomination": null,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_rational_0_by_1",
@@ -2775,7 +2775,7 @@
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "2347:7:3",
+                            "src": "2335:7:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
@@ -2790,13 +2790,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "2347:12:3",
+                          "src": "2335:12:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "2322:37:3",
+                        "src": "2310:37:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2812,7 +2812,7 @@
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2361:25:3",
+                        "src": "2349:25:3",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_3cd681c1333ee50a13f999af3cb2b885cedca2b6c2a33f8248a2bdea8f1203aa",
@@ -2840,7 +2840,7 @@
                         817
                       ],
                       "referencedDeclaration": 817,
-                      "src": "2314:7:3",
+                      "src": "2302:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
@@ -2854,7 +2854,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2314:73:3",
+                    "src": "2302:73:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -2862,7 +2862,7 @@
                   },
                   "id": 169,
                   "nodeType": "ExpressionStatement",
-                  "src": "2314:73:3"
+                  "src": "2302:73:3"
                 },
                 {
                   "expression": {
@@ -2878,7 +2878,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 154,
-                            "src": "2433:13:3",
+                            "src": "2421:13:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_Updatable_$742",
                               "typeString": "contract Updatable"
@@ -2898,7 +2898,7 @@
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "2425:7:3",
+                          "src": "2413:7:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
@@ -2913,7 +2913,7 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "2425:22:3",
+                        "src": "2413:22:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2934,7 +2934,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 92,
-                        "src": "2397:20:3",
+                        "src": "2385:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Updatable_$742",
                           "typeString": "contract Updatable"
@@ -2948,7 +2948,7 @@
                       "memberName": "update",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 734,
-                      "src": "2397:27:3",
+                      "src": "2385:27:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address) external"
@@ -2962,7 +2962,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2397:51:3",
+                    "src": "2385:51:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
@@ -2970,7 +2970,7 @@
                   },
                   "id": 177,
                   "nodeType": "ExpressionStatement",
-                  "src": "2397:51:3"
+                  "src": "2385:51:3"
                 },
                 {
                   "expression": {
@@ -2987,7 +2987,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 92,
-                      "src": "2458:20:3",
+                      "src": "2446:20:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
@@ -3002,13 +3002,13 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 154,
-                      "src": "2481:13:3",
+                      "src": "2469:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_Updatable_$742",
                         "typeString": "contract Updatable"
                       }
                     },
-                    "src": "2458:36:3",
+                    "src": "2446:36:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -3016,7 +3016,7 @@
                   },
                   "id": 181,
                   "nodeType": "ExpressionStatement",
-                  "src": "2458:36:3"
+                  "src": "2446:36:3"
                 }
               ]
             },
@@ -3035,14 +3035,14 @@
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
                   "referencedDeclaration": 756,
-                  "src": "2290:9:3",
+                  "src": "2278:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2290:9:3"
+                "src": "2278:9:3"
               }
             ],
             "name": "update",
@@ -3057,7 +3057,7 @@
                   "name": "_userRegistry",
                   "nodeType": "VariableDeclaration",
                   "scope": 183,
-                  "src": "2235:23:3",
+                  "src": "2223:23:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3070,7 +3070,7 @@
                     "name": "Updatable",
                     "nodeType": "UserDefinedTypeName",
                     "referencedDeclaration": 742,
-                    "src": "2235:9:3",
+                    "src": "2223:9:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_Updatable_$742",
                       "typeString": "contract Updatable"
@@ -3080,16 +3080,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2225:39:3"
+              "src": "2213:39:3"
             },
             "returnParameters": {
               "id": 158,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2304:0:3"
+              "src": "2292:0:3"
             },
             "scope": 194,
-            "src": "2210:291:3",
+            "src": "2198:291:3",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -3098,7 +3098,7 @@
             "body": {
               "id": 192,
               "nodeType": "Block",
-              "src": "2740:53:3",
+              "src": "2728:53:3",
               "statements": [
                 {
                   "expression": {
@@ -3111,7 +3111,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 92,
-                        "src": "2765:20:3",
+                        "src": "2753:20:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_Updatable_$742",
                           "typeString": "contract Updatable"
@@ -3131,7 +3131,7 @@
                       "isPure": true,
                       "lValueRequested": false,
                       "nodeType": "ElementaryTypeNameExpression",
-                      "src": "2757:7:3",
+                      "src": "2745:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_address_$",
                         "typeString": "type(address)"
@@ -3146,7 +3146,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2757:29:3",
+                    "src": "2745:29:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -3155,7 +3155,7 @@
                   "functionReturnParameters": 187,
                   "id": 191,
                   "nodeType": "Return",
-                  "src": "2750:36:3"
+                  "src": "2738:36:3"
                 }
               ]
             },
@@ -3170,7 +3170,7 @@
               "id": 184,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2706:2:3"
+              "src": "2694:2:3"
             },
             "returnParameters": {
               "id": 187,
@@ -3182,7 +3182,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 193,
-                  "src": "2732:7:3",
+                  "src": "2720:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3193,7 +3193,7 @@
                     "id": 185,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2732:7:3",
+                    "src": "2720:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -3204,20 +3204,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2731:9:3"
+              "src": "2719:9:3"
             },
             "scope": 194,
-            "src": "2685:108:3",
+            "src": "2673:108:3",
             "stateMutability": "view",
             "superFunction": 23,
             "visibility": "external"
           }
         ],
         "scope": 195,
-        "src": "1253:1542:3"
+        "src": "1241:1542:3"
       }
     ],
-    "src": "928:1868:3"
+    "src": "928:1856:3"
   },
   "compiler": {
     "name": "solc",
@@ -3225,7 +3225,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.9",
-  "updatedAt": "2019-05-16T14:34:38.393Z",
+  "updatedAt": "2019-05-16T15:21:02.857Z",
   "devdoc": {
     "methods": {
       "changeOwner(address)": {
