@@ -52,8 +52,14 @@ async function run() {
   await executeCommand('npm run compile', ROOT_DIRECTORY)
   await executeCommand('npm run build-ts', ROOT_DIRECTORY)
 
+  if (!(await fs.pathExists(`${ROOT_DIRECTORY}/dist/js/src`))) {
+    await fs.move(`${ROOT_DIRECTORY}/dist/js`, `${ROOT_DIRECTORY}/dist/js-temp`);
+    await fs.ensureDir(`${ROOT_DIRECTORY}/dist/js`);
+    await fs.move(`${ROOT_DIRECTORY}/dist/js-temp`, `${ROOT_DIRECTORY}/dist/js/src`);
+  }
+
   if (!(await fs.pathExists(`${ROOT_DIRECTORY}/dist/js/build`))) {
-    await fs.copy(`${ROOT_DIRECTORY}/build`, `${ROOT_DIRECTORY}/dist/js/build`);
+    await fs.move(`${ROOT_DIRECTORY}/build`, `${ROOT_DIRECTORY}/dist/js/build`);
   }
 
   console.log('EW-USER-REGISTRY-LIB: Done.');
