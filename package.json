@@ -36,9 +36,7 @@
     "typedarray-to-buffer": "3.1.5",
     "web3": "1.0.0-beta.37",
     "winston": "3.2.1",
-    "yaeti": "1.0.2"
-  },
-  "devDependencies": {
+    "yaeti": "1.0.2",
     "@types/chai": "4.1.4",
     "@types/mocha": "2.2.48",
     "@types/node": "9.6.28",
@@ -64,5 +62,8 @@
       "prettier --write --config ./.prettierrc --config-precedence file-override",
       "git add"
     ]
+  },
+  "bin": {
+    "ew-user-registry-lib-build": "./scripts/build.js"
   }
 }
