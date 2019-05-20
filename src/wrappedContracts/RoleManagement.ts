@@ -15,14 +15,14 @@ export enum Role {
     Matcher
 }
 
-export function buildRights(roles : Role[]) : number {
+export function buildRights(roles: Role[]): number {
     if (!roles) {
         return 0;
     }
 
     return roles.reduce((a, b) => {
         return a | Math.pow(2, b);
-    }, 0);
+    },                  0);
 }
 
 export class RoleManagement extends GeneralFunctions {
