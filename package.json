@@ -65,5 +65,8 @@
       "prettier --write --config ./.prettierrc --config-precedence file-override",
       "git add"
     ]
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
