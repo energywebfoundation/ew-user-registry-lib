@@ -97,10 +97,6 @@ export class GeneralFunctions {
                     id: 1
                 },
                 (e, r) => {
-                    console.log({
-                        r,
-                        e
-                    });
                     if (e) {
                         reject(e);
                     } else {
