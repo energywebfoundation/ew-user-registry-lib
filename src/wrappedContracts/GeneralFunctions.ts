@@ -62,7 +62,7 @@ export class GeneralFunctions {
         const txData = {
             nonce: txParams.nonce,
             gasLimit: txParams.gas,
-            gasPrice: 0,
+            gasPrice: txParams.gasPrice,
             data: txParams.data,
             from: txParams.from,
             to: txParams.to
@@ -87,6 +87,10 @@ export class GeneralFunctions {
                     id: 1
                 },
                 (e, r) => {
+                    console.log({
+                        r,
+                        e
+                    });
                     if (e) {
                         reject(e);
                     } else {

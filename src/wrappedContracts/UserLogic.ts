@@ -106,7 +106,7 @@ export class UserLogic extends GeneralFunctions {
             transactionParams = {
                 from: txParams.from ? txParams.from : (await this.web3.eth.getAccounts())[0],
                 gas: txParams.gas ? txParams.gas : Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: txParams.gasPrice,
                 nonce: txParams.nonce
                     ? txParams.nonce
                     : await this.web3.eth.getTransactionCount(txParams.from),
@@ -115,10 +115,16 @@ export class UserLogic extends GeneralFunctions {
                 privateKey: txParams.privateKey ? txParams.privateKey : ''
             };
         } else {
+            const fromAddress = (await this.web3.eth.getAccounts())[0];
+
             transactionParams = {
-                from: (await this.web3.eth.getAccounts())[0],
+                from: fromAddress,
                 gas: Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: await this.web3.eth.estimateGas({
+                    from: fromAddress,
+                    to: this.web3Contract.address,
+                    data: '',
+                }),
                 nonce: await this.web3.eth.getTransactionCount(
                     (await this.web3.eth.getAccounts())[0]
                 ),
@@ -183,7 +189,7 @@ export class UserLogic extends GeneralFunctions {
             transactionParams = {
                 from: txParams.from ? txParams.from : (await this.web3.eth.getAccounts())[0],
                 gas: txParams.gas ? txParams.gas : Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: txParams.gasPrice,
                 nonce: txParams.nonce
                     ? txParams.nonce
                     : await this.web3.eth.getTransactionCount(txParams.from),
@@ -192,10 +198,16 @@ export class UserLogic extends GeneralFunctions {
                 privateKey: txParams.privateKey ? txParams.privateKey : ''
             };
         } else {
+            const fromAddress = (await this.web3.eth.getAccounts())[0];
+
             transactionParams = {
-                from: (await this.web3.eth.getAccounts())[0],
+                from: fromAddress,
                 gas: Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: await this.web3.eth.estimateGas({
+                    from: fromAddress,
+                    to: this.web3Contract.address,
+                    data: '',
+                }),
                 nonce: await this.web3.eth.getTransactionCount(
                     (await this.web3.eth.getAccounts())[0]
                 ),
@@ -264,7 +276,7 @@ export class UserLogic extends GeneralFunctions {
             transactionParams = {
                 from: txParams.from ? txParams.from : (await this.web3.eth.getAccounts())[0],
                 gas: txParams.gas ? txParams.gas : Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: txParams.gasPrice,
                 nonce: txParams.nonce
                     ? txParams.nonce
                     : await this.web3.eth.getTransactionCount(txParams.from),
@@ -273,10 +285,16 @@ export class UserLogic extends GeneralFunctions {
                 privateKey: txParams.privateKey ? txParams.privateKey : ''
             };
         } else {
+            const fromAddress = (await this.web3.eth.getAccounts())[0];
+
             transactionParams = {
-                from: (await this.web3.eth.getAccounts())[0],
+                from: fromAddress,
                 gas: Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: await this.web3.eth.estimateGas({
+                    from: fromAddress,
+                    to: this.web3Contract.address,
+                    data: '',
+                }),
                 nonce: await this.web3.eth.getTransactionCount(
                     (await this.web3.eth.getAccounts())[0]
                 ),
@@ -343,7 +361,7 @@ export class UserLogic extends GeneralFunctions {
             transactionParams = {
                 from: txParams.from ? txParams.from : (await this.web3.eth.getAccounts())[0],
                 gas: txParams.gas ? txParams.gas : Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: txParams.gasPrice,
                 nonce: txParams.nonce
                     ? txParams.nonce
                     : await this.web3.eth.getTransactionCount(txParams.from),
@@ -352,10 +370,16 @@ export class UserLogic extends GeneralFunctions {
                 privateKey: txParams.privateKey ? txParams.privateKey : ''
             };
         } else {
+            const fromAddress = (await this.web3.eth.getAccounts())[0];
+
             transactionParams = {
-                from: (await this.web3.eth.getAccounts())[0],
+                from: fromAddress,
                 gas: Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: await this.web3.eth.estimateGas({
+                    from: fromAddress,
+                    to: this.web3Contract.address,
+                    data: '',
+                }),
                 nonce: await this.web3.eth.getTransactionCount(
                     (await this.web3.eth.getAccounts())[0]
                 ),
@@ -432,7 +456,7 @@ export class UserLogic extends GeneralFunctions {
             transactionParams = {
                 from: txParams.from ? txParams.from : (await this.web3.eth.getAccounts())[0],
                 gas: txParams.gas ? txParams.gas : Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: txParams.gasPrice,
                 nonce: txParams.nonce
                     ? txParams.nonce
                     : await this.web3.eth.getTransactionCount(txParams.from),
@@ -441,10 +465,16 @@ export class UserLogic extends GeneralFunctions {
                 privateKey: txParams.privateKey ? txParams.privateKey : ''
             };
         } else {
+            const fromAddress = (await this.web3.eth.getAccounts())[0];
+
             transactionParams = {
-                from: (await this.web3.eth.getAccounts())[0],
+                from: fromAddress,
                 gas: Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: await this.web3.eth.estimateGas({
+                    from: fromAddress,
+                    to: this.web3Contract.address,
+                    data: '',
+                }),
                 nonce: await this.web3.eth.getTransactionCount(
                     (await this.web3.eth.getAccounts())[0]
                 ),
@@ -521,7 +551,7 @@ export class UserLogic extends GeneralFunctions {
             transactionParams = {
                 from: txParams.from ? txParams.from : (await this.web3.eth.getAccounts())[0],
                 gas: txParams.gas ? txParams.gas : Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: txParams.gasPrice,
                 nonce: txParams.nonce
                     ? txParams.nonce
                     : await this.web3.eth.getTransactionCount(txParams.from),
@@ -530,10 +560,16 @@ export class UserLogic extends GeneralFunctions {
                 privateKey: txParams.privateKey ? txParams.privateKey : ''
             };
         } else {
+            const fromAddress = (await this.web3.eth.getAccounts())[0];
+
             transactionParams = {
-                from: (await this.web3.eth.getAccounts())[0],
+                from: fromAddress,
                 gas: Math.round(gas * 1.1 + 21000),
-                gasPrice: 0,
+                gasPrice: await this.web3.eth.estimateGas({
+                    from: fromAddress,
+                    to: this.web3Contract.address,
+                    data: '',
+                }),
                 nonce: await this.web3.eth.getTransactionCount(
                     (await this.web3.eth.getAccounts())[0]
                 ),
