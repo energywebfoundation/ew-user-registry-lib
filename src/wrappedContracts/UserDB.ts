@@ -61,68 +61,28 @@ export class UserDB extends GeneralFunctions {
         const method = this.web3Contract.methods.setOrganization(_user, _organization);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .setOrganization(_user, _organization)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async setRoles(_user: string, _roles: number, txParams?: SpecialTx) {
         const method = this.web3Contract.methods.setRoles(_user, _roles);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .setRoles(_user, _roles)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async setUser(_user: string, _organization: string, txParams?: SpecialTx) {
         const method = this.web3Contract.methods.setUser(_user, _organization);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .setUser(_user, _organization)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async setUserActive(_user: string, _active: boolean, txParams?: SpecialTx) {
         const method = this.web3Contract.methods.setUserActive(_user, _active);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .setUserActive(_user, _active)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async owner(txParams?: SpecialTx) {
@@ -133,17 +93,7 @@ export class UserDB extends GeneralFunctions {
         const method = this.web3Contract.methods.changeOwner(_newOwner);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .changeOwner(_newOwner)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async getFullUser(_user: string, txParams?: SpecialTx) {

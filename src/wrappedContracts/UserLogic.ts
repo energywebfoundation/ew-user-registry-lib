@@ -61,34 +61,14 @@ export class UserLogic extends GeneralFunctions {
         const method = this.web3Contract.methods.deactivateUser(_user);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .deactivateUser(_user)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async update(_newLogic: string, txParams?: SpecialTx) {
         const method = this.web3Contract.methods.update(_newLogic);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .update(_newLogic)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async getRolesRights(_user: string, txParams?: SpecialTx) {
@@ -99,34 +79,14 @@ export class UserLogic extends GeneralFunctions {
         const method = this.web3Contract.methods.setRoles(_user, _rights);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .setRoles(_user, _rights)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async setUser(_user: string, _organization: string, txParams?: SpecialTx) {
         const method = this.web3Contract.methods.setUser(_user, _organization);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .setUser(_user, _organization)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async userContractLookup(txParams?: SpecialTx) {
@@ -145,17 +105,7 @@ export class UserLogic extends GeneralFunctions {
         const method = this.web3Contract.methods.changeOwner(_newOwner);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .changeOwner(_newOwner)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 
     async isRole(_role: number, _caller: string, txParams?: SpecialTx) {
@@ -174,16 +124,6 @@ export class UserLogic extends GeneralFunctions {
         const method = this.web3Contract.methods.init(_database, _admin);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .init(_database, _admin)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 }

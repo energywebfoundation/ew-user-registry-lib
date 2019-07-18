@@ -85,6 +85,18 @@ export class GeneralFunctions {
         return await web3.eth.sendSignedTransaction((txObject as any).rawTransaction);
     }
 
+    async send(method: any, txParams: ITxParams): Promise<TransactionReceipt> {
+        if (txParams.privateKey !== '') {
+            return await this.sendRaw(this.web3, txParams.privateKey, txParams);
+        }
+        
+        return await method.send({
+            from: txParams.from,
+            gas: txParams.gas,
+            gasPrice: txParams.gasPrice
+        });
+    }
+
     getWeb3Contract() {
         return this.web3Contract;
     }

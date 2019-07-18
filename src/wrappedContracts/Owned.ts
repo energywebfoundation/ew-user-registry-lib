@@ -64,16 +64,6 @@ export class Owned extends GeneralFunctions {
         const method = this.web3Contract.methods.changeOwner(_newOwner);
         const transactionParams = await this.buildTransactionParams(method, txParams);
 
-        if (transactionParams.privateKey !== '') {
-            return await this.sendRaw(this.web3, transactionParams.privateKey, transactionParams);
-        } else {
-            return await this.web3Contract.methods
-                .changeOwner(_newOwner)
-                .send({
-                    from: transactionParams.from,
-                    gas: transactionParams.gas,
-                    gasPrice: transactionParams.gasPrice
-                });
-        }
+        return await this.send(method, transactionParams);
     }
 }
