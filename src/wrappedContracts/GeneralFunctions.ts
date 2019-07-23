@@ -121,9 +121,17 @@ export class GeneralFunctions {
 
         let methodGas;
 
+        if (params.privateKey) {
+            const privateKey = params.privateKey.startsWith('0x') ? params.privateKey : '0x' + params.privateKey;
+
+            params.from = this.web3.eth.accounts.privateKeyToAccount(privateKey).address;
+        }
+
+        params.from = params ? params.from : (await this.web3.eth.getAccounts())[0];
+
         try {
             methodGas = await method.estimateGas({
-                from: params ? params.from : (await this.web3.eth.getAccounts())[0]
+                from: params.from
             });
         } catch (ex) {
             if (!(await getClientVersion(this.web3)).includes('Parity')) {
@@ -131,22 +139,16 @@ export class GeneralFunctions {
             }
 
             const errorResult = await this.getErrorMessage(this.web3, {
-                from: params ? params.from : (await this.web3.eth.getAccounts())[0],
+                from: params.from,
                 to: this.web3Contract._address,
-                data: params.data,
+                data: params ? params.data : '',
                 gas: this.web3.utils.toHex(7000000)
             });
             throw new Error(errorResult);
         }
 
-        if (params.privateKey) {
-            const privateKey = params.privateKey.startsWith('0x') ? params.privateKey : '0x' + params.privateKey;
-
-            params.from = this.web3.eth.accounts.privateKeyToAccount(privateKey).address;
-        }
-
         return {
-            from: params.from ? params.from : (await this.web3.eth.getAccounts())[0],
+            from: params.from,
             gas: Math.round((params.gas ? params.gas : methodGas) * 2),
             gasPrice: params.gasPrice ? params.gasPrice : networkGasPrice.toString(),
             nonce: params.nonce
