@@ -22,7 +22,7 @@ import {
     UserContractLookup
 } from '..';
 import { migrateUserRegistryContracts } from '../utils/migrateContracts';
-import { UserProperties, UserPropertiesOffChain, User } from '../blockchain-facade/Users/User';
+import { IUserPropertiesOnChain, IUserPropertiesOffChain, User } from '../blockchain-facade/Users/User';
 import { Configuration } from 'ew-utils-general-lib';
 import { logger } from '../blockchain-facade/Logger';
 import Web3 from 'web3';
@@ -68,16 +68,17 @@ describe('UserLogic Facade', () => {
     });
 
     it('should create a user', async () => {
-        const userProps: UserProperties = {
+        const userProps: IUserPropertiesOnChain = {
             id: user1,
             active: true,
             roles: RIGHTS,
             organization: 'Testorganization'
         };
 
-        const userPropsOffchain: UserPropertiesOffChain = {
+        const userPropsOffchain: IUserPropertiesOffChain = {
             firstName: 'John',
             surname: 'Doe',
+            email: 'john@doe.com',
             street: 'Evergreen Terrace',
             number: '101',
             zip: '14789',
