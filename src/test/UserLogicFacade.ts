@@ -152,4 +152,20 @@ describe('UserLogic Facade', () => {
         assert.notOk(user.isRole(Role.Matcher));
         assert.notOk(user.isRole(Role.UserAdmin));
     });
+
+    it('Should get offChainProperties correctly', async () => {
+        const user = await new User.Entity(user1, conf).sync();
+
+        assert.deepEqual(user.offChainProperties, {
+            city: 'Shelbyville',
+            country: 'US',
+            email: 'john@doe.com',
+            firstName: 'John',
+            number: '101',
+            state: 'FL',
+            street: 'Evergreen Terrace',
+            surname: 'Doe',
+            zip: '14789'
+        });
+    });
 });
